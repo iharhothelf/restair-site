@@ -35,7 +35,7 @@
       justify-content: center;
     }
 
-    .carousel img {
+    .carousel img.slide {
       width: 100%;
       display: none;
       border-radius: 12px;
@@ -50,15 +50,9 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 2rem;
-      color: #333;
-      background: rgba(255,255,255,0.7);
-      border-radius: 50%;
+      cursor: pointer;
       width: 40px;
       height: 40px;
-      line-height: 40px;
-      text-align: center;
-      cursor: pointer;
       user-select: none;
     }
 
@@ -81,11 +75,11 @@
   </header>
 
   <div class="carousel">
-    <div class="arrow left">&#10094;</div>
-    <img src="image1.jpg" class="active" alt="Изображение 1">
-    <img src="image2.jpg" alt="Изображение 2">
-    <img src="image3.jpg" alt="Изображение 3">
-    <div class="arrow right">&#10095;</div>
+    <img src="arrow-left.png" class="arrow left" alt="Назад">
+    <img src="image1.jpg" class="slide active" alt="Изображение 1">
+    <img src="image2.jpg" class="slide" alt="Изображение 2">
+    <img src="image3.jpg" class="slide" alt="Изображение 3">
+    <img src="arrow-right.png" class="arrow right" alt="Вперёд">
   </div>
 
   <footer>
@@ -94,26 +88,49 @@
   </footer>
 
   <script>
-    const images = document.querySelectorAll('.carousel img');
+    const slides = document.querySelectorAll('.slide');
     const leftArrow = document.querySelector('.arrow.left');
     const rightArrow = document.querySelector('.arrow.right');
     let currentIndex = 0;
+    let autoSlide;
 
     function showImage(index) {
-      images.forEach((img, i) => {
+      slides.forEach((img, i) => {
         img.classList.toggle('active', i === index);
       });
     }
 
-    leftArrow.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % slides.length;
       showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showImage(currentIndex);
+    }
+
+    function startAutoSlide() {
+      autoSlide = setInterval(nextImage, 4000); // каждые 4 секунды
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      startAutoSlide();
+    }
+
+    leftArrow.addEventListener('click', () => {
+      prevImage();
+      resetAutoSlide();
     });
 
     rightArrow.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
+      nextImage();
+      resetAutoSlide();
     });
+
+    // Запуск автопрокрутки
+    startAutoSlide();
   </script>
 </body>
 </html>
