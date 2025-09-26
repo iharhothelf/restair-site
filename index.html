@@ -20,7 +20,7 @@
   const loader = new THREE.GLTFLoader();
   loader.load("untitled.glb", (gltf) => {
       const model = gltf.scene;
-      model.scale.set(1, 1, 1); // масштабируем
+      model.scale.set(0.1, 0.1, 0.1); // масштабируем
       scene.add(model);
   });
 
