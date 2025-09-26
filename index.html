@@ -2,15 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Three.js Cube Test</title>
-    <style>body { margin: 0; }</style>
+    <title>Three.js Cube Debug</title>
+    <style>
+      body { margin: 0; }
+      canvas { display: block; }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
   </head>
   <body>
     <script>
+      console.log("✅ Скрипт начал выполняться");
+
       // Сцена
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xeeeeee);
+      scene.background = new THREE.Color(0xcccccc);
 
       // Камера
       const camera = new THREE.PerspectiveCamera(
@@ -19,18 +24,31 @@
         0.1,
         1000
       );
-      camera.position.z = 3;
+      camera.position.set(0, 0, 3);
 
       // Рендер
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
 
+      console.log("✅ Рендер создан и добавлен в DOM");
+
+      // Свет
+      const light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(5, 5, 5);
+      scene.add(light);
+
+      // Сетка для ориентации
+      const gridHelper = new THREE.GridHelper(10, 10);
+      scene.add(gridHelper);
+
       // Куб
-      const geometry = new THREE.BoxGeometry();
-      const material = new THREE.MeshNormalMaterial();
+      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
       const cube = new THREE.Mesh(geometry, material);
       scene.add(cube);
+
+      console.log("✅ Куб добавлен в сцену");
 
       // Анимация
       function animate() {
@@ -40,6 +58,8 @@
         renderer.render(scene, camera);
       }
       animate();
+
+      console.log("✅ Анимация запущена");
     </script>
   </body>
 </html>
