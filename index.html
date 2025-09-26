@@ -2,17 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Three.js Cube Debug</title>
+    <title>Three.js Cube + OrbitControls</title>
     <style>
       body { margin: 0; }
       canvas { display: block; }
     </style>
+    <!-- Three.js -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <!-- OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
   </head>
   <body>
     <script>
-      console.log("✅ Скрипт начал выполняться");
-
       // Сцена
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0xcccccc);
@@ -31,14 +32,12 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
 
-      console.log("✅ Рендер создан и добавлен в DOM");
-
       // Свет
       const light = new THREE.DirectionalLight(0xffffff, 1);
       light.position.set(5, 5, 5);
       scene.add(light);
 
-      // Сетка для ориентации
+      // Сетка
       const gridHelper = new THREE.GridHelper(10, 10);
       scene.add(gridHelper);
 
@@ -48,18 +47,28 @@
       const cube = new THREE.Mesh(geometry, material);
       scene.add(cube);
 
-      console.log("✅ Куб добавлен в сцену");
+      // OrbitControls (важно: без THREE.)
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true; // плавность
+      controls.dampingFactor = 0.05;
+      controls.update();
 
       // Анимация
       function animate() {
         requestAnimationFrame(animate);
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
+        controls.update();
         renderer.render(scene, camera);
       }
       animate();
 
-      console.log("✅ Анимация запущена");
+      // Автоматическая подгонка под экран
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
     </script>
   </body>
 </html>
