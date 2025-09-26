@@ -1,59 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Three.js Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример страницы</title>
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; background: #111; }
-    canvas { display: block; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      background: #fdfdfd;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 60px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel img {
+      width: 100%;
+      display: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #333;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .arrow.left { left: 10px; }
+    .arrow.right { right: 10px; }
+
+    footer {
+      padding: 20px;
+      max-width: 600px;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #444;
+    }
   </style>
 </head>
 <body>
-<script type="module">
-  import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js";
-  import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/controls/OrbitControls.js";
+  <header>
+    <img src="logo.png" alt="Логотип">
+  </header>
 
-  // Сцена и камера
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  camera.position.z = 3;
+  <div class="carousel">
+    <div class="arrow left">&#10094;</div>
+    <img src="image1.jpg" class="active" alt="Изображение 1">
+    <img src="image2.jpg" alt="Изображение 2">
+    <img src="image3.jpg" alt="Изображение 3">
+    <div class="arrow right">&#10095;</div>
+  </div>
 
-  // Рендерер
-  const renderer = new THREE.WebGLRenderer({antialias: true});
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+  <footer>
+    Здесь будет описание продукта или проекта. Можно добавить несколько абзацев текста, 
+    чтобы объяснить назначение и особенности.
+  </footer>
 
-  // Куб для теста
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshStandardMaterial({ color: 0xffcc00 });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    const leftArrow = document.querySelector('.arrow.left');
+    const rightArrow = document.querySelector('.arrow.right');
+    let currentIndex = 0;
 
-  // Свет
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(5, 5, 5);
-  scene.add(light);
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
 
-  // Управление камерой
-  const controls = new OrbitControls(camera, renderer.domElement);
+    leftArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
 
-  // Анимация
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    controls.update();
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  // Адаптивность
-  window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-</script>
+    rightArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+  </script>
 </body>
 </html>
