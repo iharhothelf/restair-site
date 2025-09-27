@@ -1,91 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 100vh;
-      background: #333d4a;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-    }
-
-    header img {
-      max-height: 60px;
-    }
-
-    .carousel {
-      position: relative;
-      width: 80%;
-      max-width: 600px;
-      overflow: visible;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel img.slide {
-      width: 100%;
-      display: none;
-    }
-
-    .carousel img.active {
-      display: block;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      width: 20px;
-      height: 30px;
-      user-select: none;
-      z-index: 10;
-    }
-
-    .arrow.left { left: -50px; }
-    .arrow.right { right: -50px; }
-
-    footer {
-      padding: 20px;
-      max-width: 600px;
-      text-align: center;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #444;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="logo.png" alt="Логотип">
-  </header>
-
-  <div class="carousel">
-    <img src="left_arrow.png" class="arrow left" alt="Назад">
-    <img src="mk3_panel.png" class="slide active" alt="Изображение 1">
-    <img src="e46_panel.png" class="slide" alt="Изображение 2">
-    <img src="right_arrow.png" class="arrow right" alt="Вперёд">
-  </div>
-
-  <footer>
-    Здесь будет описание продукта или проекта. Можно добавить несколько абзацев текста, 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
+        <style>body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 100vh; background: #000000; } header { padding: 20px; text-align: center; } header img { max-height: 60px; } .carousel { position: relative; width: 80%; max-width: 600px; overflow: visible; display: flex; align-items: center; justify-content: center; } .carousel img.slide { width: 100%; display: none; } .carousel img.active { display: block; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; width: 20px; height: 30px; user-select: none; z-index: 10; } .arrow.left { left: -100px; } .arrow.right { right: -100px; } footer { padding: 20px; max-width: 600px; text-align: center; font-size: 1rem; line-height: 1.5; color: #444; }</style>
+    </head>
+    <body>
+        <header>
+            <img src="logo.png" alt="Логотип">
+        </header>
+        <div class="carousel">
+            <img src="left_arrow.png" class="arrow left" alt="Назад">
+            <img src="mk3_panel.png" class="slide active" alt="Изображение 1">
+            <img src="e46_panel.png" class="slide" alt="Изображение 2">
+            <img src="right_arrow.png" class="arrow right" alt="Вперёд">
+        </div>
+        <footer>
+            Здесь будет описание продукта или проекта. Можно добавить несколько абзацев текста, 
     чтобы объяснить назначение и особенности.
-  </footer>
-
-  <script>
+  
+</footer>
+        <script>
     const slides = document.querySelectorAll('.slide');
     const leftArrow = document.querySelector('.arrow.left');
     const rightArrow = document.querySelector('.arrow.right');
@@ -130,5 +66,5 @@
     // Запуск автопрокрутки
     startAutoSlide();
   </script>
-</body>
+    </body>
 </html>
