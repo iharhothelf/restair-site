@@ -3,81 +3,176 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Видео слева</title>
+        <title>Real-time Electronic System Tune for your AIR suspension</title>
         <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+        @font-face {
+            font-family: 'RestairFont';
+            src: url('RESTAIR.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #f5f5f5;
-    }
+        body {
+            font-family: 'RestairFont';
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      gap: 20px;
-    }
+        main {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            /* вся высота экрана */
+            margin: 0;
+        }
 
-    video {
-      width: 300px;        /* фиксируем ширину для вертикального видео */
-      height: auto;        /* пропорции сохраняются */
-      border-radius: 12px; /* скруглённые углы по желанию */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
 
-    .description {
-      max-width: 400px;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      color: #333;
-    }
+        video {
+            width: 50vw;
+            /* 50% от ширины окна */
+            height: 100vh;
+            /* высота = высота окна */
+            object-fit: cover;
+            /* видео заполняет контейнер без искажений */
+            display: block;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #f5f5f5;
-      font-size: 0.9rem;
-      color: #555;
-    }
+        .carousel-container {
+            flex: 1;
+            /* занимает оставшуюся половину */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-      }
-      video {
-        width: 100%;
-        max-width: 400px;
-      }
-    }
-  </style>
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: calc(50vw + 25vw);
+            /* центр между видео и правым краем */
+            transform: translateX(-50%);
+            text-align: center;
+            /* текст под логотипом по центру */
+        }
+
+        .logo {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .logo-text p {
+            margin: 15px 0 0 0;
+            /* отступ сверху, снизу 0 */
+            color: #ccc;
+            font-size: 0.5rem;
+            font-family: 'RestairFont';
+            /* свой шрифт */
+        }
+
+        .carousel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 500px;
+            max-width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .carousel-text {
+            margin-top: 5px;
+            text-align: center;
+            color: #ccc;
+            max-width: 400px;
+            /* ограничиваем ширину */
+            line-height: 1.5;
+            /* расстояние между строками */
+            word-wrap: break-word;
+            /* перенос длинных слов */
+            white-space: normal;
+            /* разрешаем перенос строк */
+            font-size: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #111;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
     </head>
     <body>
-        <header>
-            <h1>Мой сайт</h1>
-        </header>
         <main>
             <video src="video.mp4" autoplay muted loop playsinline></video>
-            <div class="description">
-                <h2>Описание видео</h2>
-                <p>
-        Это вертикальное видео размещено слева. Справа находится блок с текстом, 
-        который адаптируется под размер экрана. На мобильных устройствах 
-        видео окажется сверху, а текст под ним. </p>
+            <div class="carousel-container">
+                <div class="logo-container">
+                    <img src="logo.png" alt="Логотип" class="logo">
+                    <div class="logo-text">
+                        <p>REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</p>
+                    </div>
+                </div>
+                <div class="carousel">
+                    <img src="mk3_panel.png" class="active" alt="Изображение 1">
+                    <img src="e46_panel.png" alt="Изображение 2">
+                </div>
+                <div class="carousel-text">
+                    <p>
+                    CUSTOM DESIGN TO YOUR CAR INTERIOR<br>
+                    RGB BACKLIGHTING FOR DISPLAY AND INDICATORS<br>
+                    TWO INTUITIVE CONTROL BUTTONS<br> </p>
+                </div>
             </div>
         </main>
-        <footer>
-            © 2025 Мой проект
-</footer>
+        <script>
+        const images = document.querySelectorAll('.carousel img');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    // Автопереключение каждые 3 секунды
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }, 3000);
+    </script>
     </body>
 </html>
