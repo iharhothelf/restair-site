@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Real-time Electronic System Tune for your AIR suspension</title>
+        <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
         <style>
         @font-face {
             font-family: 'RestairFont';
@@ -25,39 +25,35 @@
             display: flex;
             flex-direction: row;
             height: 100vh;
-            /* вся высота экрана */
             margin: 0;
+            position: relative;
         }
-
 
         video {
             width: 50vw;
-            /* 50% от ширины окна */
             height: 100vh;
-            /* высота = высота окна */
             object-fit: cover;
-            /* видео заполняет контейнер без искажений */
             display: block;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
         }
 
         .carousel-container {
             flex: 1;
-            /* занимает оставшуюся половину */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
 
         .logo-container {
             position: absolute;
             top: 20px;
             left: calc(50vw + 25vw);
-            /* центр между видео и правым краем */
             transform: translateX(-50%);
             text-align: center;
-            /* текст под логотипом по центру */
         }
 
         .logo {
@@ -67,64 +63,92 @@
 
         .logo-text p {
             margin: 15px 0 0 0;
-            /* отступ сверху, снизу 0 */
             color: #ccc;
             font-size: 0.5rem;
             font-family: 'RestairFont';
-            /* свой шрифт */
         }
 
-        .carousel-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .carousel {
+        .outer-carousel {
             position: relative;
             width: 500px;
-            max-width: 100%;
             height: 400px;
-            overflow: hidden;
         }
 
-        .carousel img {
+        .carousel-section {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            opacity: 0;
+            transform: translate(0, 0) rotate(0deg);
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .carousel-section.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .carousel-section.next {
+            opacity: 1;
+            transform: translate(50%, 50%);
+        }
+
+        .inner-carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin-bottom: 60px;
+        }
+
+        .inner-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             position: absolute;
             top: 0;
             left: 0;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1s;
         }
 
-        .carousel img.active {
+        .inner-carousel img.active {
             opacity: 1;
-            z-index: 1;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 20px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .arrow.left {
+            left: -50px;
+            background: url('left_arrow.png') no-repeat center / contain;
+        }
+
+        .arrow.right {
+            right: -50px;
+            background: url('right_arrow.png') no-repeat center / contain;
         }
 
         .carousel-text {
-            margin-top: 5px;
+            margin: 5px auto 0 auto;
             text-align: center;
             color: #ccc;
             max-width: 400px;
-            /* ограничиваем ширину */
             line-height: 1.5;
-            /* расстояние между строками */
             word-wrap: break-word;
-            /* перенос длинных слов */
             white-space: normal;
-            /* разрешаем перенос строк */
             font-size: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #111;
-            font-size: 0.9rem;
-            color: #aaa;
         }
 
         @media (max-width: 768px) {
@@ -146,33 +170,111 @@
                         <p>REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</p>
                     </div>
                 </div>
-                <div class="carousel">
-                    <img src="mk3_panel.png" class="active" alt="Изображение 1">
-                    <img src="e46_panel.png" alt="Изображение 2">
-                </div>
-                <div class="carousel-text">
-                    <p>
-                    CUSTOM DESIGN TO YOUR CAR INTERIOR<br>
-                    RGB BACKLIGHTING FOR DISPLAY AND INDICATORS<br>
-                    TWO INTUITIVE CONTROL BUTTONS<br> </p>
+                <div class="outer-carousel">
+                    <button class="arrow left"></button>
+                    <div class="carousel-section active">
+                        <div class="inner-carousel">
+                            <img src="mk3_panel.png" class="active" alt="1.1">
+                            <img src="e46_panel.png" alt="1.2">
+                        </div>
+                        <div class="carousel-text">
+                            <p>
+                            CUSTOM DESIGN TO YOUR CAR INTERIOR<br>
+                            RGB BACKLIGHTING FOR DISPLAY AND INDICATORS<br>
+                            TWO INTUITIVE CONTROL BUTTONS<br> </p>
+                        </div>
+                    </div>
+                    <div class="carousel-section">
+                        <div class="inner-carousel">
+                            <img src="2circuits_box.png" class="active" alt="2.1">
+                            <img src="4circuits_box.png" alt="2.2">
+                        </div>
+                        <div class="carousel-text">
+                            <p>
+                            2 AND 4 CIRCUITS SUPPORT<br>
+                            MODULAR DESIGN<br> </p>
+                        </div>
+                    </div>
+                    <button class="arrow right"></button>
                 </div>
             </div>
         </main>
         <script>
-        const images = document.querySelectorAll('.carousel img');
-    let current = 0;
+        const sections = document.querySelectorAll('.carousel-section');
+        const prev = document.querySelector('.arrow.left');
+        const next = document.querySelector('.arrow.right');
+        let currentSection = 0;
+        let isAnimating = false;
 
-    function showImage(index) {
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
+        function showSection(newIndex, direction) {
+    if (isAnimating || newIndex === currentSection) return;
+    isAnimating = true;
+
+    const current = sections[currentSection];
+    const nextSection = sections[newIndex];
+
+    let enterX, enterY, exitX, exitY;
+    if (direction === 'next') {
+        enterX = -100;
+        enterY = -100;
+        exitX = 100;
+        exitY = 100;
+    } else {
+        enterX = 100;
+        enterY = 100;
+        exitX = -100;
+        exitY = -100;
     }
 
-    // Автопереключение каждые 3 секунды
-    setInterval(() => {
-      current = (current + 1) % images.length;
-      showImage(current);
-    }, 3000);
+    nextSection.style.transition = 'none';
+    current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+
+    nextSection.style.transform = `translate(${enterX}%, ${enterY}%)`;
+    nextSection.style.opacity = 1;
+    nextSection.style.display = 'block';
+
+    requestAnimationFrame(() => {
+        current.style.transform = `translate(${exitX}%, ${exitY}%)`;
+        current.style.opacity = 0;
+
+        nextSection.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+        nextSection.style.transform = 'translate(0,0)';
+        nextSection.style.opacity = 1;
+    });
+
+    setTimeout(() => {
+        current.classList.remove('active');
+        nextSection.classList.add('active');
+
+        current.style.opacity = '';
+        current.style.transform = '';
+        current.style.transition = '';
+        nextSection.style.transition = '';
+        isAnimating = false;
+        currentSection = newIndex;
+    }, 820);
+}
+
+        prev.addEventListener('click', () => {
+    const newIndex = (currentSection - 1 + sections.length) % sections.length;
+    showSection(newIndex, 'prev');
+});
+
+next.addEventListener('click', () => {
+    const newIndex = (currentSection + 1) % sections.length;
+    showSection(newIndex, 'next');
+});
+
+        
+        document.querySelectorAll('.inner-carousel').forEach(inner => {
+            const imgs = inner.querySelectorAll('img');
+            let idx = 0;
+            setInterval(() => {
+                imgs[idx].classList.remove('active');
+                idx = (idx + 1) % imgs.length;
+                imgs[idx].classList.add('active');
+            }, 3000);
+        });
     </script>
     </body>
 </html>
