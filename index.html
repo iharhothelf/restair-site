@@ -3,68 +3,81 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
-        <style>body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 100vh; background: #000000; } header { padding: 20px; text-align: center; } header img { max-height: 60px; } .carousel { position: relative; width: 80%; max-width: 600px; overflow: visible; display: flex; align-items: center; justify-content: center; } .carousel img.slide { width: 100%; display: none; } .carousel img.active { display: block; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; width: 20px; height: 30px; user-select: none; z-index: 10; } .arrow.left { left: -100px; } .arrow.right { right: -100px; } footer { padding: 20px; max-width: 600px; text-align: center; font-size: 1rem; line-height: 1.5; color: #444; }</style>
+        <title>Видео слева</title>
+        <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    video {
+      width: 300px;        /* фиксируем ширину для вертикального видео */
+      height: auto;        /* пропорции сохраняются */
+      border-radius: 12px; /* скруглённые углы по желанию */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .description {
+      max-width: 400px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #f5f5f5;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      video {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
     </head>
     <body>
         <header>
-            <img src="logo.png" alt="Логотип">
+            <h1>Мой сайт</h1>
         </header>
-        <div class="carousel">
-            <img src="left_arrow.png" class="arrow left" alt="Назад">
-            <img src="mk3_panel.png" class="slide active" alt="Изображение 1">
-            <img src="e46_panel.png" class="slide" alt="Изображение 2">
-            <img src="right_arrow.png" class="arrow right" alt="Вперёд">
-        </div>
+        <main>
+            <video src="video.mp4" autoplay muted loop playsinline></video>
+            <div class="description">
+                <h2>Описание видео</h2>
+                <p>
+        Это вертикальное видео размещено слева. Справа находится блок с текстом, 
+        который адаптируется под размер экрана. На мобильных устройствах 
+        видео окажется сверху, а текст под ним. </p>
+            </div>
+        </main>
         <footer>
-            Здесь будет описание продукта или проекта. Можно добавить несколько абзацев текста, 
-    чтобы объяснить назначение и особенности.
-  
+            © 2025 Мой проект
 </footer>
-        <script>
-    const slides = document.querySelectorAll('.slide');
-    const leftArrow = document.querySelector('.arrow.left');
-    const rightArrow = document.querySelector('.arrow.right');
-    let currentIndex = 0;
-    let autoSlide;
-
-    function showImage(index) {
-      slides.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showImage(currentIndex);
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showImage(currentIndex);
-    }
-
-    function startAutoSlide() {
-      autoSlide = setInterval(nextImage, 4000); // каждые 4 секунды
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlide);
-      startAutoSlide();
-    }
-
-    leftArrow.addEventListener('click', () => {
-      prevImage();
-      resetAutoSlide();
-    });
-
-    rightArrow.addEventListener('click', () => {
-      nextImage();
-      resetAutoSlide();
-    });
-
-    // Запуск автопрокрутки
-    startAutoSlide();
-  </script>
     </body>
 </html>
