@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>RESTAIR - Privacy Policy</title>
+        <style>
+@font-face {
+    font-family: 'RestairFont';
+    src: url('RESTAIR.ttf') format('truetype');
+}
+
+body {
+    font-family: 'RestairFont', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--bg), #071018);
+    color: var(--text);
+}
+
+/* Центрируем весь контент вертикально */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+.logo-text p {
+    margin: 8px 0 0;
+    color: #ccc;
+    font-size: 0.6rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 800px;
+    flex: 1;
+    background: linear-gradient(180deg, var(--card), #071018);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+p.lead {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0 0 16px;
+    color: var(--muted);
+}
+
+h2 {
+    font-size: 14px;
+    margin: 16px 0 8px;
+    color: var(--accent);
+}
+
+p {
+    font-size: 10px;
+    line-height: 1.6;
+    margin: 0 0 10px;
+}
+
+ footer {
+            text-align: center;
+            padding: 15px;
+            background: #1a1a1a;
+            font-size: 0.6rem;
+            color: #555;
+        }
+
+a.btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media(max-width:600px){
+    .card { padding: 16px; }
+    p.lead { font-size: 10px; }
+}
+</style>
+    </head>
+    <body>
+        <main>
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo">
+                <div class="logo-text">
+                    <p>REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</p>
+                </div>
+            </div>
+            <div class="card">
+                <header>
+                    <h1>PRIVACY POLICY - RESTAIR</h1>
+                    <p class="lead">THIS PAGE IS A PRODUCT SHOWCASE. THE DOCUMENT EXPLAINS HOW PERSONAL DATA IS (OR IS NOT) PROCESSED.</p>
+                </header>
+                <section>
+                    <h2>1. GENERAL INFORMATION</h2>
+                    <p>THE RESTAIR WEBSITE DOES NOT COLLECT OR PROCESS VISITORS’ PERSONAL DATA INTENTIONALLY — WE DO NOT USE CONTACT FORMS OR ANALYTICS TOOLS. ALL CONTENT ON THE SITE IS INFORMATIONAL ONLY.</p>
+                </section>
+                <section>
+                    <h2>2. COOKIES</h2>
+                    <p>THE WEBSITE MAY USE ONLY TECHNICAL COOKIES STRICTLY NECESSARY FOR CORRECT OPERATION (E.G. BROWSER SESSION MAINTENANCE). NO TRACKING OR ADVERTISING COOKIES ARE USED.</p>
+                </section>
+                <section>
+                    <h2>3. CONTACT</h2>
+                    <p>IF YOU HAVE ANY QUESTIONS REGARDING PRIVACY, PLEASE CONTACT US AT: <strong><a href="mailto:restaircontrollers@gmail.com" style="color:var(--text);text-decoration:underline;">RESTAIRCONTROLLERS@GMAIL.COM</a></strong>.</p>
+                </section>
+                <section>
+                    <h2>4. USER RIGHTS</h2>
+                    <p>IF WE EVER START PROCESSING PERSONAL DATA (E.G. THROUGH A FUTURE CONTACT FORM), WE WILL ENSURE THE RIGHT OF ACCESS, RECTIFICATION, AND ERASURE IN ACCORDANCE WITH GDPR.</p>
+                </section>
+            </div>
+        </main>
+        <footer style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #1a1a1a; font-size: 0.6rem; color: #555;">
+            <div>RESTAIR (C) <span id="year"></span>
+            </div>
+            <a href="index.html" class="btn">BACK</a>
+        </footer>
+        <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+    </body>
+</html>

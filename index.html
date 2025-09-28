@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
-        <style>@font-face { font-family: 'RestairFont'; src: url('RESTAIR.ttf') format('truetype'); font-weight: normal; font-style: normal; } body { font-family: 'RestairFont'; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; } main { display: flex; flex-direction: row; height: 100vh; margin: 0; position: relative; } video { width: 30vw; height: 100vh; object-fit: cover; display: block; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); z-index: 2; position: relative; } .carousel-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1; } .logo-container { position: absolute; top: 20px; left: 35vw; transform: translateX(-50%); text-align: center; } .logo { max-width: 100px; height: auto; } .logo-text p { margin: 15px 0 0 0; color: #ccc; font-size: 0.5rem; font-family: 'RestairFont'; } .outer-carousel { position: relative; width: 600px; height: 400px; } .carousel-section { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: translate(0, 0) rotate(0deg); transition: transform 0.8s ease, opacity 0.8s ease; } .carousel-section.active { opacity: 1; transform: translate(0, 0); } .carousel-section.next { opacity: 1; transform: translate(50%, 50%); } .inner-carousel { position: relative; width: 100%; height: 400px; margin-bottom: 60px; } .inner-carousel img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; } .inner-carousel img.active { opacity: 1; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 15px; height: 20px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border: none; font-size: 20px; color: #fff; } .arrow.left { left: -50px; background: url('left_arrow.png') no-repeat center / contain; } .arrow.right { right: -50px; background: url('right_arrow.png') no-repeat center / contain; } .carousel-text { margin: 5px auto 0 auto; text-align: center; color: #ccc; max-width: 400px; line-height: 1.5; word-wrap: break-word; white-space: normal; font-size: 0.5rem; } footer { text-align: center; padding: 15px; background: #1a1a1a; font-size: 0.6rem; color: #555; } @media (max-width: 768px) { main {  flex-direction: column;  align-items: center;  gap: 20px; } }</style>
+        <style>@font-face { font-family: 'RestairFont'; src: url('RESTAIR.ttf') format('truetype'); font-weight: normal; font-style: normal; } body { font-family: 'RestairFont'; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; } main { display: flex; flex-direction: row; height: 100vh; margin: 0; position: relative; } video { width: 50vw; height: 100vh; object-fit: cover; display: block; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); z-index: 2; position: relative; right: 20px; clip-path: inset(20px 0px 20px 0px round 15px); } .carousel-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1; } .logo-container { position: absolute; top: 20px; left: 25vw; transform: translateX(-50%); text-align: center; } .logo { max-width: 100px; height: auto; } .logo-text p { margin: 15px 0 0 0; color: #ccc; font-size: 0.5rem; font-family: 'RestairFont'; } .outer-carousel { position: relative; width: 600px; height: 400px; } .carousel-section { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: translate(0, 0) rotate(0deg); transition: transform 0.8s ease, opacity 0.8s ease; } .carousel-section.active { opacity: 1; transform: translate(0, 0); } .carousel-section.next { opacity: 1; transform: translate(50%, 50%); } .inner-carousel { position: relative; width: 100%; height: 400px; margin-bottom: 60px; } .inner-carousel img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; } .inner-carousel img.active { opacity: 1; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 15px; height: 20px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border: none; font-size: 20px; color: #fff; } .arrow.left { left: -50px; background: url('left_arrow.png') no-repeat center / contain; } .arrow.right { right: -50px; background: url('right_arrow.png') no-repeat center / contain; } .carousel-text { margin: 5px auto 0 auto; text-align: center; color: #ccc; max-width: 400px; line-height: 1.5; word-wrap: break-word; white-space: normal; font-size: 0.5rem; } footer { text-align: center; padding: 15px; background: #1a1a1a; font-size: 0.6rem; color: #555; } @media (max-width: 768px) { main {  flex-direction: column;  align-items: center;  gap: 20px; } }</style>
     </head>
     <body>
         <main>
@@ -45,11 +45,75 @@
             </div>
             <video src="video.mp4" autoplay muted loop playsinline></video>
         </main>
-        <footer>
-            (C) 2025 RESTAIR
-</footer>
+        <!-- START: RESTAIR Comparison Block -->
+        <section id="restair-comparison">
+            <!-- Container -->
+            <div style="max-width:1200px; margin:40px auto; padding:20px;">
+                <!-- ENGLISH VERSION (stacked below) -->
+                <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; margin-top:8px;">
+                    <!-- Intro (EN) -->
+                    <div style="flex:1 1 320px; min-width:280px;">
+                        <h3 style="margin:0 0 12px; font-size:15px; text-align:left; color:#0a8f7a;">ANNOYED BY GAUGES AND
+                        REMOTES THAT DON’T MATCH YOUR CAR INTERIOR?</h3>
+                        <p style="margin:0 0 12px; text-align:left; line-height:1.45;  font-size:12px; color:#333;">
+                        RESTAIR IS AN ALTERNATIVE - A SYSTEM THAT COMBINES PRECISE MONITORING WITH AN AESTHETIC. </p>
+                    </div>
+                    <!-- Table (EN) -->
+                    <div style="flex:1 1 420px; min-width:280px; overflow:auto;">
+                        <table style="width:100%; border-collapse:collapse; font-size:10px; color:#222;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:40%;">
+                                    FEATURE</th>
+                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:20%;">
+                                    GAUGES</th>
+                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:20%;">
+                                    GENERIC REMOTES</th>
+                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:20%;">
+                                    RESTAIR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">ACCURACY</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">AVERAGE</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">AVERAGE</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">HIGH</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">INTERIOR FIT</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">LOW</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">AVERAGE</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">HIGH</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">BACKLIGHT</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">NONE/LOW</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">SINGLE-COLOR</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">RGB</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">FUNCTIONALITY</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY ONLY</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY + BASIC CONTROL </td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY + EXTENDED
+                                    CONTROL + ALERTS</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: RESTAIR Comparison Block -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1a1a1a; font-size: 0.6rem; color: #555;">
+            <div>RESTAIR (C) <span id="year"></span>
+            </div><a href="privacy.html" class="btn">PRIVACY POLICY</a>
+        </footer>
         <script>
-const sections = document.querySelectorAll('.carousel-section');
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        const sections = document.querySelectorAll('.carousel-section');
 const prev = document.querySelector('.arrow.left');
 const next = document.querySelector('.arrow.right');
 let currentSection = 0;
@@ -176,6 +240,6 @@ document.querySelectorAll('.inner-carousel').forEach(inner => {
         animateTo(newIdx);
     }, 4000);
 });
-</script>
+    </script>
     </body>
 </html>
