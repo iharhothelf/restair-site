@@ -6,256 +6,7 @@
         <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <style>
-        @font-face {
-            font-family: 'RestairFont';
-            src: url('RESTAIR.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            font-family: 'RestairFont';
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-        }
-
-        video {
-            width: 50vw;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            z-index: 2;
-            position: relative;
-            right: 20px;
-            clip-path: inset(20px 0px 20px 0px round 15px);
-        }
-
-        .carousel-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-        }
-
-        .logo-container {
-            position: absolute;
-            top: 20px;
-            left: 25vw;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-
-        .logo {
-            max-width: 100px;
-            height: auto;
-        }
-
-        .logo-text p {
-            margin: 15px 0 0 0;
-            color: #ccc;
-            font-size: 0.5rem;
-            font-family: 'RestairFont';
-        }
-
-        .outer-carousel {
-            position: relative;
-            width: 600px;
-            height: 400px;
-        }
-
-        .carousel-section {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: translate(0, 0) rotate(0deg);
-            transition: transform 0.8s ease, opacity 0.8s ease;
-        }
-
-        .carousel-section.active {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
-        .carousel-section.next {
-            opacity: 1;
-            transform: translate(50%, 50%);
-        }
-
-        .inner-carousel {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            margin-bottom: 60px;
-        }
-
-        .inner-carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-
-        .inner-carousel img.active {
-            opacity: 1;
-        }
-
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 20px;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .arrow.left {
-            left: -50px;
-            background: url('left_arrow.png') no-repeat center / contain;
-        }
-
-        .arrow.right {
-            right: -50px;
-            background: url('right_arrow.png') no-repeat center / contain;
-        }
-
-        .carousel-text {
-            margin: 5px auto 0 auto;
-            text-align: center;
-            color: #ccc;
-            max-width: 400px;
-            line-height: 1.5;
-            word-wrap: break-word;
-            white-space: normal;
-            font-size: 0.5rem;
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: #1a1a1a;
-            font-size: 0.6rem;
-            color: #555;
-        }
-
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 10px;
-            height: auto;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .arrow img {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* --- Адаптация для мобильных --- */
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-                align-items: center;
-                height: auto;
-                gap: 20px;
-            }
-
-            video {
-                width: 100%;
-                height: auto;
-                right: 0;
-                clip-path: inset(0 round 15px);
-            }
-
-            .carousel-container {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .outer-carousel {
-                width: 100%;
-                height: auto;
-            }
-
-            .inner-carousel {
-                height: auto;
-            }
-
-            .logo-container {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-                margin-bottom: 10px;
-            }
-
-            .logo {
-                max-width: 80px;
-            }
-
-            .logo-text p {
-                font-size: 0.7rem;
-            }
-
-            #restair-comparison>div {
-                padding: 10px;
-                margin: 20px auto;
-            }
-
-            #restair-comparison h3 {
-                font-size: 13px;
-                text-align: center;
-            }
-
-            #restair-comparison p {
-                font-size: 11px;
-                text-align: center;
-            }
-
-            #restair-comparison table {
-                font-size: 9px;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
-    </style>
+        <style>@font-face { font-family: 'RestairFont'; src: url('RESTAIR.ttf') format('truetype'); font-weight: normal; font-style: normal; } body { font-family: 'RestairFont'; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; } main { display: flex; flex-direction: row; height: 100vh; margin: 0; position: relative; } video { width: 50vw; height: 100vh; object-fit: cover; display: block; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); z-index: 2; position: relative; right: 20px; clip-path: inset(20px 0px 20px 0px round 15px); } .carousel-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1; } .logo-container { position: absolute; top: 20px; left: 25vw; transform: translateX(-50%); text-align: center; } .logo { max-width: 100px; height: auto; } .logo-text p { margin: 15px 0 0 0; color: #ccc; font-size: 0.5rem; font-family: 'RestairFont'; } .outer-carousel { position: relative; width: 600px; height: 400px; } .carousel-section { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: translate(0, 0) rotate(0deg); transition: transform 0.8s ease, opacity 0.8s ease; } .carousel-section.active { opacity: 1; transform: translate(0, 0); } .carousel-section.next { opacity: 1; transform: translate(50%, 50%); } .inner-carousel { position: relative; width: 100%; height: 400px; margin-bottom: 60px; } .inner-carousel img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; } .inner-carousel img.active { opacity: 1; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 15px; height: 20px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border: none; font-size: 20px; color: #fff; } .arrow.left { left: -50px; background: url('left_arrow.png') no-repeat center / contain; } .arrow.right { right: -50px; background: url('right_arrow.png') no-repeat center / contain; } .carousel-text { margin: 5px auto 0 auto; text-align: center; color: #ccc; max-width: 400px; line-height: 1.5; word-wrap: break-word; white-space: normal; font-size: 0.5rem; } footer { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1a1a1a; font-size: 0.6rem; color: #555; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 10px; height: auto; cursor: pointer; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: center; } .arrow img { width: 100%; height: 100%; } /* --- Адаптация для мобильных --- */@media (max-width: 768px) { main {  flex-direction: column;  align-items: center;  height: auto;  gap: 20px; }  video {  width: 100%;  height: auto;  right: 0;  clip-path: inset(0px 20px 0px 20px round 15px); }  .carousel-container {  width: 100%;  padding: 10px; }  .outer-carousel {  width: 100%;  height: auto; }  .inner-carousel {  height: auto; }  .logo-container {  position: relative;  top: 0;  left: 0;  transform: none;  margin-bottom: 10px; }  .logo {  max-width: 80px; }  .logo-text p {  font-size: 0.7rem; }  #restair-comparison>div {  padding: 10px;  margin: 20px auto; }  #restair-comparison h3 {  font-size: 13px;  text-align: center; }  #restair-comparison p {  font-size: 11px;  text-align: center; }  #restair-comparison table {  font-size: 9px; }  footer {  flex-direction: column;  text-align: center;  gap: 10px; } }</style>
     </head>
     <body>
         <main>
@@ -277,9 +28,9 @@
                         </div>
                         <div class="carousel-text">
                             <p>
-                            CUSTOM DESIGN TO YOUR CAR INTERIOR<br>
-                            RGB BACKLIGHTING FOR DISPLAY AND INDICATORS<br>
-                            TWO INTUITIVE CONTROL BUTTONS<br> </p>
+                            INDIVIDUAL DESIGN FOR EACH CAR INTERIOR<br>
+                            RGB BACKLIGHT FOR DISPLAY AND INDICATORS<br>
+                            TWO INTUITIVE SYSTEM CONTROL BUTTONS<br> </p>
                         </div>
                     </div>
                     <div class="carousel-section">
@@ -305,10 +56,10 @@
             <div style="max-width:1200px; margin:40px auto; padding:20px;">
                 <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; margin-top:8px;">
                     <div style="flex:1 1 320px; min-width:280px;">
-                        <h3 style="margin:0 0 12px; font-size:15px; text-align:left; color:#0a8f7a;">
+                        <h3 style="margin:14px 0 12px; font-size:15px; text-align:left; color:#0a8f7a;">
                         ANNOYED BY GAUGES AND REMOTES THAT DON’T MATCH YOUR CAR INTERIOR? </h3>
                         <p style="margin:0 0 12px; text-align:left; line-height:1.45; font-size:12px; color:#333;">
-                        RESTAIR IS AN ALTERNATIVE - A SYSTEM THAT COMBINES CONTROL WITH AN AESTHETIC. </p>
+                        RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+ AESTHETIC. </p>
                     </div>
                     <div style="flex:1 1 420px; min-width:280px; overflow:auto;">
                         <table style="width:100%; border-collapse:collapse; font-size:10px; color:#222;">
@@ -349,6 +100,12 @@
                                     <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY + BASIC CONTROL </td>
                                     <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY + EXTENDED
                                     CONTROL + ALERTS</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">SYSTEM LANGUAGE</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">NONE</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">ENGLISH</td>
+                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">ENGLISH POLISH </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -425,12 +182,31 @@ function showSection(newIndex, direction) {
 prev.addEventListener('click', () => {
     const newIndex = (currentSection - 1 + sections.length) % sections.length;
     showSection(newIndex, 'prev');
+    resetAutoSlide();
 });
 
 next.addEventListener('click', () => {
     const newIndex = (currentSection + 1) % sections.length;
     showSection(newIndex, 'next');
+    resetAutoSlide();
 });
+
+// ==========================
+// AUTO SLIDE EVERY 8 SECONDS
+// ==========================
+/*let autoSlide = setInterval(() => {
+    const newIndex = (currentSection + 1) % sections.length;
+    showSection(newIndex, 'next');
+}, 8000);
+
+// Reset interval on manual navigation
+function resetAutoSlide() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(() => {
+        const newIndex = (currentSection + 1) % sections.length;
+        showSection(newIndex, 'next');
+    }, 8000);
+}*/
 
 // ==========================
 // ВНУТРЕННИЕ КАРУСЕЛИ (автоанимация по диагонали)
