@@ -6,7 +6,271 @@
         <title>RESTAIR - Real-time Electronic System Tune for your AIR suspension</title>
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <style>@font-face { font-family: 'RestairFont'; src: url('RESTAIR.ttf') format('truetype'); font-weight: normal; font-style: normal; } body { font-family: 'RestairFont'; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; } main { display: flex; flex-direction: row; height: 100vh; margin: 0; position: relative; } video { width: 50vw; height: 100vh; object-fit: cover; display: block; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); z-index: 2; position: relative; right: 20px; clip-path: inset(20px 0px 20px 0px round 15px); } .carousel-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1; } .logo-container { position: absolute; top: 20px; left: 25vw; transform: translateX(-50%); text-align: center; } .logo { max-width: 100px; height: auto; } .logo-text p { margin: 15px 0 0 0; color: #ccc; font-size: 0.5rem; font-family: 'RestairFont'; } .outer-carousel { position: relative; width: 600px; height: 400px; } .carousel-section { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: translate(0, 0) rotate(0deg); transition: transform 0.8s ease, opacity 0.8s ease; } .carousel-section.active { opacity: 1; transform: translate(0, 0); } .carousel-section.next { opacity: 1; transform: translate(50%, 50%); } .inner-carousel { position: relative; width: 100%; height: 400px; margin-bottom: 60px; } .inner-carousel img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; opacity: 0; } .inner-carousel img.active { opacity: 1; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 15px; height: 20px; cursor: pointer; background: rgba(255, 255, 255, 0.2); border: none; font-size: 20px; color: #fff; } .arrow.left { left: -50px; background: url('left_arrow.png') no-repeat center / contain; } .arrow.right { right: -50px; background: url('right_arrow.png') no-repeat center / contain; } .carousel-text { margin: 5px auto 0 auto; text-align: center; color: #ccc; max-width: 400px; line-height: 1.5; word-wrap: break-word; white-space: normal; font-size: 0.5rem; } footer { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1a1a1a; font-size: 0.6rem; color: #555; } .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 10px; height: auto; cursor: pointer; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: center; } .arrow img { width: 100%; height: 100%; } /* --- Адаптация для мобильных --- */@media (max-width: 768px) { main {  flex-direction: column;  align-items: center;  height: auto;  gap: 20px; }  video {  width: 100%;  height: auto;  right: 0;  clip-path: inset(0px 20px 0px 20px round 15px); }  .carousel-container {  width: 100%;  padding: 10px; }  .outer-carousel {  width: 100%;  height: auto; }  .inner-carousel {  height: auto; }  .logo-container {  position: relative;  top: 0;  left: 0;  transform: none;  margin-bottom: 10px; }  .logo {  max-width: 80px; }  .logo-text p {  font-size: 0.7rem; }  #restair-comparison>div {  padding: 10px;  margin: 20px auto; }  #restair-comparison h3 {  font-size: 13px;  text-align: center; }  #restair-comparison p {  font-size: 11px;  text-align: center; }  #restair-comparison table {  font-size: 9px; }  footer {  flex-direction: column;  text-align: center;  gap: 10px; } }</style>
+        <style>
+        @font-face {
+            font-family: 'RestairFont';
+            src: url('RESTAIR.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'RestairFont';
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        video {
+            width: 50vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            right: 20px;
+            clip-path: inset(20px 0px 20px 0px round 15px);
+            z-index: 0;
+            /* Видео под каруселью */
+        }
+
+        .carousel-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            /* Карусель выше видео */
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 25vw;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .logo-text p {
+            margin: 15px 0 0 0;
+            color: #ccc;
+            font-size: 0.5rem;
+        }
+
+        .outer-carousel {
+            position: relative;
+            width: 600px;
+            height: 400px;
+        }
+
+        .carousel-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translate(0, 0);
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .carousel-section.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .inner-carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin-bottom: 60px;
+        }
+
+        .inner-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .inner-carousel img.active {
+            opacity: 1;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            z-index: 5;
+        }
+
+        .arrow.left {
+            left: -50px;
+            background: url('left_arrow.png') no-repeat center / contain;
+        }
+
+        .arrow.right {
+            right: -50px;
+            background: url('right_arrow.png') no-repeat center / contain;
+        }
+
+        .carousel-text {
+            margin: 5px auto 0 auto;
+            text-align: center;
+            color: #ccc;
+            max-width: 400px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: normal;
+            font-size: 0.5rem;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #1a1a1a;
+            font-size: 0.6rem;
+            color: #555;
+        }
+
+        /* --- Мобильная версия --- */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                gap: 20px;
+            }
+
+            .carousel-container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .carousel-section {
+                position: absolute;
+                /* вместо relative */
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            .outer-carousel {
+                top: 50px;
+                width: 100%;
+                height: 300px;
+                /* задаём фиксированную высоту */
+                position: relative;
+            }
+
+            .inner-carousel {
+                height: 100%;
+                /* занимать всю высоту outer-carousel */
+            }
+
+            .inner-carousel img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                opacity: 0;
+                transition: transform 0.8s ease, opacity 0.8s ease;
+            }
+
+            video {
+                width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 0;
+                right: 0;
+                clip-path: inset(0px 20px 0px 20px round 15px);
+            }
+
+            .logo-container {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                margin-bottom: 10px;
+            }
+
+            .logo {
+                max-width: 80px;
+            }
+
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+
+            .arrow.left {
+                left: 10px;
+                /* видимая стрелка на мобильном */
+            }
+
+            .arrow.right {
+                right: 10px;
+            }
+
+            #restair-comparison>div {
+                padding: 10px;
+                margin: 20px auto;
+            }
+
+            #restair-comparison h3 {
+                font-size: 13px;
+                text-align: center;
+                color: #0a8f7a;
+            }
+
+            #restair-comparison p {
+                font-size: 11px;
+                text-align: center;
+                color: #ccc;
+            }
+
+            #restair-comparison table {
+                font-size: 9px;
+                color: #ccc;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                color: #ccc;
+            }
+        }
+    </style>
     </head>
     <body>
         <main>
@@ -30,7 +294,7 @@
                             <p>
                             INDIVIDUAL DESIGN FOR EACH CAR INTERIOR<br>
                             RGB BACKLIGHT FOR DISPLAY AND INDICATORS<br>
-                            TWO INTUITIVE SYSTEM CONTROL BUTTONS<br> </p>
+                            TWO INTUITIVE SYSTEM CONTROL BUTTONS </p>
                         </div>
                     </div>
                     <div class="carousel-section">
@@ -41,7 +305,7 @@
                         <div class="carousel-text">
                             <p>
                             2 AND 4 CIRCUITS SUPPORT<br>
-                            MODULAR DESIGN<br> </p>
+                            MODULAR DESIGN </p>
                         </div>
                     </div>
                     <button class="arrow right">
@@ -51,7 +315,7 @@
             </div>
             <video src="video.mp4" autoplay muted loop playsinline></video>
         </main>
-        <!-- START: Comparison Table -->
+        <!-- Comparison Table -->
         <section id="restair-comparison">
             <div style="max-width:1200px; margin:40px auto; padding:20px;">
                 <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; margin-top:8px;">
@@ -59,7 +323,8 @@
                         <h3 style="margin:14px 0 12px; font-size:15px; text-align:left; color:#0a8f7a;">
                         ANNOYED BY GAUGES AND REMOTES THAT DON’T MATCH YOUR CAR INTERIOR? </h3>
                         <p style="margin:0 0 12px; text-align:left; line-height:1.45; font-size:12px; color:#333;">
-                        RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+ AESTHETIC. </p>
+                        RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+
+                        AESTHETIC. </p>
                     </div>
                     <div style="flex:1 1 420px; min-width:280px; overflow:auto;">
                         <table style="width:100%; border-collapse:collapse; font-size:10px; color:#222;">
@@ -113,160 +378,124 @@
                 </div>
             </div>
         </section>
-        <!-- END: Comparison table -->
         <footer>
             <div>RESTAIR (C) <span id="year"></span>
-            </div><a href="privacy.html" class="btn">PRIVACY POLICY</a>
+            </div>
+            <a href="privacy.html" class="btn">PRIVACY POLICY</a>
         </footer>
         <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-        
+
         const sections = document.querySelectorAll('.carousel-section');
-const prev = document.querySelector('.arrow.left');
-const next = document.querySelector('.arrow.right');
-let currentSection = 0;
-let isAnimating = false;
+        const prev = document.querySelector('.arrow.left');
+        const next = document.querySelector('.arrow.right');
+        let currentSection = 0;
+        let isAnimating = false;
 
-// ==========================
-// EXTERNAL CAROUSEL
-// ==========================
-function showSection(newIndex, direction) {
-    if (isAnimating || newIndex === currentSection) return;
-    isAnimating = true;
+        function showSection(newIndex, direction) {
+            if (isAnimating || newIndex === currentSection) return;
+            isAnimating = true;
 
-    const current = sections[currentSection];
-    const nextSection = sections[newIndex];
+            const current = sections[currentSection];
+            const nextSection = sections[newIndex];
 
-    let enterX, enterY, exitX, exitY;
-    if (direction === 'next') {
-        enterX = -100;
-        enterY = -100;
-        exitX = 100;
-        exitY = 100;
-    } else {
-        enterX = 100;
-        enterY = 100;
-        exitX = -100;
-        exitY = -100;
-    }
+            let enterX = direction === 'next' ? -100 : 100;
+            let enterY = direction === 'next' ? -100 : 100;
+            let exitX = direction === 'next' ? 100 : -100;
+            let exitY = direction === 'next' ? 100 : -100;
 
-    nextSection.style.transition = 'none';
-    current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+            nextSection.style.transition = 'none';
+            current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
 
-    nextSection.style.transform = `translate(${enterX}%, ${enterY}%)`;
-    nextSection.style.opacity = 1;
-    nextSection.style.display = 'block';
+            nextSection.style.transform = `translate(${enterX}%, ${enterY}%)`;
+            nextSection.style.opacity = 1;
+            nextSection.style.display = 'block';
 
-    requestAnimationFrame(() => {
-        current.style.transform = `translate(${exitX}%, ${exitY}%)`;
-        current.style.opacity = 0;
+            requestAnimationFrame(() => {
+                current.style.transform = `translate(${exitX}%, ${exitY}%)`;
+                current.style.opacity = 0;
 
-        nextSection.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-        nextSection.style.transform = 'translate(0,0)';
-        nextSection.style.opacity = 1;
-    });
+                nextSection.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+                nextSection.style.transform = 'translate(0,0)';
+                nextSection.style.opacity = 1;
+            });
 
-    setTimeout(() => {
-        current.classList.remove('active');
-        nextSection.classList.add('active');
+            setTimeout(() => {
+                current.classList.remove('active');
+                nextSection.classList.add('active');
 
-        current.style.opacity = '';
-        current.style.transform = '';
-        current.style.transition = '';
-        nextSection.style.transition = '';
-        isAnimating = false;
-        currentSection = newIndex;
-    }, 820);
-}
+                current.style.opacity = '';
+                current.style.transform = '';
+                current.style.transition = '';
+                nextSection.style.transition = '';
+                isAnimating = false;
+                currentSection = newIndex;
+            }, 820);
+        }
 
-prev.addEventListener('click', () => {
-    const newIndex = (currentSection - 1 + sections.length) % sections.length;
-    showSection(newIndex, 'prev');
-    resetAutoSlide();
-});
-
-next.addEventListener('click', () => {
-    const newIndex = (currentSection + 1) % sections.length;
-    showSection(newIndex, 'next');
-    resetAutoSlide();
-});
-
-// ==========================
-// AUTO SLIDE EVERY 8 SECONDS
-// ==========================
-/*let autoSlide = setInterval(() => {
-    const newIndex = (currentSection + 1) % sections.length;
-    showSection(newIndex, 'next');
-}, 8000);
-
-// Reset interval on manual navigation
-function resetAutoSlide() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        const newIndex = (currentSection + 1) % sections.length;
-        showSection(newIndex, 'next');
-    }, 8000);
-}*/
-
-// ==========================
-// ВНУТРЕННИЕ КАРУСЕЛИ (автоанимация по диагонали)
-// ==========================
-document.querySelectorAll('.inner-carousel').forEach(inner => {
-    const imgs = Array.from(inner.querySelectorAll('img'));
-    let idx = imgs.findIndex(i => i.classList.contains('active'));
-    if (idx < 0) idx = 0, imgs[0].style.opacity = '1';
-    let isAnimating = false;
-
-    function animateTo(newIdx) {
-        if (isAnimating || newIdx === idx) return;
-        isAnimating = true;
-
-        const current = imgs[idx];
-        const next = imgs[newIdx];
-
-        // Новая картинка стартует внизу слева и прозрачная
-        next.style.transition = 'none';
-        next.style.transform = 'translate(-100%, 100%)';
-        next.style.opacity = '0';   // прозрачная в начале
-        next.style.zIndex = '2';
-        next.style.display = 'block';
-
-        // Форсируем перерисовку браузера
-        next.getBoundingClientRect();
-
-        // Анимация: старая уходит вправо вверх, новая появляется и двигается в центр
-        current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-        current.style.zIndex = '1';
-        current.style.transform = 'translate(100%, -100%)';
-        current.style.opacity = '0';
-
-        next.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-        next.style.transform = 'translate(0,0)';
-        next.style.opacity = '1';  // новая становится видимой
-
-        current.addEventListener('transitionend', function handler(e) {
-            if (e.propertyName !== 'transform') return;
-            current.removeEventListener('transitionend', handler);
-
-            current.classList.remove('active');
-            next.classList.add('active');
-
-            // Сбрасываем стили
-            current.style.transition = '';
-            current.style.transform = '';
-            current.style.opacity = '';
-            current.style.zIndex = '';
-            next.style.zIndex = '';
-            idx = newIdx;
-            isAnimating = false;
+        prev.addEventListener('click', () => {
+            const newIndex = (currentSection - 1 + sections.length) % sections.length;
+            showSection(newIndex, 'prev');
         });
-    }
 
-    setInterval(() => {
-        const newIdx = (idx + 1) % imgs.length;
-        animateTo(newIdx);
-    }, 4000);
-});
+        next.addEventListener('click', () => {
+            const newIndex = (currentSection + 1) % sections.length;
+            showSection(newIndex, 'next');
+        });
+
+        // Внутренние карусели
+        document.querySelectorAll('.inner-carousel').forEach(inner => {
+            const imgs = Array.from(inner.querySelectorAll('img'));
+            let idx = imgs.findIndex(i => i.classList.contains('active'));
+            if (idx < 0) idx = 0, imgs[0].style.opacity = '1';
+            let isAnimatingInner = false;
+
+            function animateTo(newIdx) {
+                if (isAnimatingInner || newIdx === idx) return;
+                isAnimatingInner = true;
+
+                const current = imgs[idx];
+                const next = imgs[newIdx];
+
+                next.style.transition = 'none';
+                next.style.transform = 'translate(-100%, 100%)';
+                next.style.opacity = '0';
+                next.style.zIndex = '2';
+                next.style.display = 'block';
+
+                next.getBoundingClientRect();
+
+                current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+                current.style.zIndex = '1';
+                current.style.transform = 'translate(100%, -100%)';
+                current.style.opacity = '0';
+
+                next.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+                next.style.transform = 'translate(0,0)';
+                next.style.opacity = '1';
+
+                current.addEventListener('transitionend', function handler(e) {
+                    if (e.propertyName !== 'transform') return;
+                    current.removeEventListener('transitionend', handler);
+
+                    current.classList.remove('active');
+                    next.classList.add('active');
+
+                    current.style.transition = '';
+                    current.style.transform = '';
+                    current.style.opacity = '';
+                    current.style.zIndex = '';
+                    next.style.zIndex = '';
+                    idx = newIdx;
+                    isAnimatingInner = false;
+                });
+            }
+
+            setInterval(() => {
+                const newIdx = (idx + 1) % imgs.length;
+                animateTo(newIdx);
+            }, 4000);
+        });
     </script>
     </body>
 </html>
