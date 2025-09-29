@@ -94,6 +94,40 @@
             clip-path: inset(20px 0px 20px 0px round 15px);
         }
 
+        .action-block {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* центрируем по горизонтали */
+    text-align: center;  /* текст тоже центрируем */
+}
+
+.action-button {
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.action-button img {
+    width: 120px;  /* ширина кнопки */
+    height: auto;  /* сохраняем пропорции */
+    transition: transform 0.2s ease;
+}
+
+.action-button:hover img {
+    transform: scale(1.05); /* лёгкий эффект при наведении */
+}
+
+.action-text {
+    font-size: 0.6rem;
+    color: #ccc;
+    max-width: 300px;
+    line-height: 1.4;
+    margin-top: 8px;
+}
+
         /* --- Карусель --- */
         .outer-carousel {
             position: relative;
@@ -261,6 +295,11 @@
                     <p>RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+
                     AESTHETIC.</p>
                 </div>
+                <!-- Блок с кнопкой и описанием -->
+                <div class="action-block">
+                    <a href="https://www.instagram.com/restair_official" target="_blank" class="action-button"> <img src="instagram_btn.png" alt="Button Icon"> </a>
+                    <p class="action-text">SUBSCRIBE AND STAY UP TO DATE WITH THE LATEST NEWS ABOUT OUR PRODUCT.</p>
+                </div>
             </div>
             <video src="video.mp4" autoplay muted loop playsinline></video>
         </div>
@@ -284,7 +323,9 @@
                     <img src="4circuits_box.png" alt="2.2">
                 </div>
                 <div class="carousel-text">
-                    2 AND 4 CIRCUITS SUPPORT<br>
+                    2 AND 4 CIRCUITS VALVES SUPPORT<br>
+                    COMPRESSOR CONTROL SUPPORT<br>
+                    ANY 5V SENSORS SUPPORT<br>
                     MODULAR DESIGN
                 </div>
             </div>
@@ -338,7 +379,8 @@
         <!-- Footer -->
         <footer>
             <div>RESTAIR (C) <span id="year"></span>
-            </div><a href="privacy.html" class="btn">PRIVACY POLICY</a>
+            </div>
+            <a href="privacy.html" class="btn">PRIVACY POLICY</a>
         </footer>
     </body>
 </html>
