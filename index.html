@@ -21,109 +21,139 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background: #fff;
         }
 
-        main {
+        /* --- Верхний блок: текст и видео --- */
+        .top-section {
             display: flex;
-            flex-direction: row;
             height: 100vh;
-            margin: 0;
-            position: relative;
         }
 
-        video {
-            width: 50vw;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            right: 20px;
-            clip-path: inset(20px 0px 20px 0px round 15px);
-            z-index: 0;
-            /* Видео под каруселью */
-        }
-
-        .carousel-container {
+        .text-block {
             flex: 1;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        /* Логотип и текст под ним всегда сверху */
+        .logo-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-            /* Карусель выше видео */
-        }
-
-        .logo-container {
-            position: absolute;
-            top: 20px;
-            left: 25vw;
-            transform: translateX(-50%);
-            text-align: center;
         }
 
         .logo {
             max-width: 100px;
             height: auto;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        .logo-text p {
-            margin: 15px 0 0 0;
+        .logo-text {
             color: #ccc;
-            font-size: 0.5rem;
+            font-size: 0.7rem;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
+        /* Заголовок и абзац — вертикально по центру */
+        .middle-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .middle-text h3 {
+            max-width: 500px;
+            font-size: 15px;
+            color: #0a8f7a;
+            margin: 0 0 10px 0;
+        }
+
+        .middle-text p {
+            max-width: 500px;
+            font-size: 12px;
+            color: #333;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        video {
+            flex: 1;
+            width: 50%;
+            height: 100vh;
+            margin: 0px 20px 0px;
+            object-fit: cover;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            clip-path: inset(20px 0px 20px 0px round 15px);
+        }
+
+        /* --- Карусель --- */
         .outer-carousel {
             position: relative;
-            width: 600px;
-            height: 400px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            height: 600px;
+            overflow: hidden;
         }
 
         .carousel-section {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             opacity: 0;
-            transform: translate(0, 0);
-            transition: transform 0.8s ease, opacity 0.8s ease;
+            transition: opacity 0.8s ease;
         }
 
         .carousel-section.active {
             opacity: 1;
-            transform: translate(0, 0);
         }
 
         .inner-carousel {
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            height: 400px;
-            margin-bottom: 60px;
+            height: 500px;
+            position: relative;
+            /* для совместимости с JS анимацией */
         }
 
         .inner-carousel img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
-            position: absolute;
-            top: 0;
-            left: 0;
             opacity: 0;
-            transition: transform 0.8s ease, opacity 0.8s ease;
+            position: absolute;
+            /* оставляем для совместимости с JS */
+            transition: opacity 0.8s ease;
         }
 
         .inner-carousel img.active {
             opacity: 1;
         }
 
+        .carousel-text {
+            margin-top: 30px;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+
         .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
+            width: auto;
+            height: 20px;
             cursor: pointer;
             background: rgba(255, 255, 255, 0.2);
             border: none;
@@ -131,26 +161,41 @@
         }
 
         .arrow.left {
-            left: -50px;
+            left: 10px;
             background: url('left_arrow.png') no-repeat center / contain;
         }
 
         .arrow.right {
-            right: -50px;
+            right: 10px;
             background: url('right_arrow.png') no-repeat center / contain;
         }
 
-        .carousel-text {
-            margin: 5px auto 0 auto;
-            text-align: center;
-            color: #ccc;
-            max-width: 400px;
-            line-height: 1.5;
-            word-wrap: break-word;
-            white-space: normal;
-            font-size: 0.5rem;
+        /* --- Таблица --- */
+        #restair-comparison {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
+        #restair-comparison table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+            color: #222;
+        }
+
+        #restair-comparison th,
+        #restair-comparison td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f3f3f3;
+            text-align: left;
+        }
+
+        #restair-comparison th {
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        /* --- Footer --- */
         footer {
             display: flex;
             justify-content: space-between;
@@ -158,233 +203,147 @@
             padding: 20px;
             background: #1a1a1a;
             font-size: 0.6rem;
-            color: #555;
+            color: #ccc;
         }
 
         /* --- Мобильная версия --- */
         @media (max-width: 768px) {
-            main {
+            .top-section {
                 flex-direction: column;
-                align-items: center;
                 height: auto;
-                gap: 20px;
             }
 
-            .carousel-container {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .carousel-section {
-                position: absolute;
-                /* вместо relative */
-                top: 0;
-                left: 0;
-                width: 100%;
-            }
-
-            .outer-carousel {
-                top: 50px;
-                width: 100%;
-                height: 300px;
-                /* задаём фиксированную высоту */
-                position: relative;
-            }
-
-            .inner-carousel {
-                height: 100%;
-                /* занимать всю высоту outer-carousel */
-            }
-
-            .inner-carousel img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                opacity: 0;
-                transition: transform 0.8s ease, opacity 0.8s ease;
+            .text-block {
+                max-width: 100%;
+                padding: 20px;
             }
 
             video {
+                flex: 1;
                 width: 100%;
-                height: auto;
-                position: relative;
-                z-index: 0;
-                right: 0;
-                clip-path: inset(0px 20px 0px 20px round 15px);
+                height: 100vw;
+                margin: 0px 0px 0px;
+                object-fit: cover;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+                clip-path: inset(20px 20px 20px 20px round 15px);
             }
 
-            .logo-container {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-                margin-bottom: 10px;
+            .outer-carousel {
+                height: 500px;
             }
 
             .logo {
                 max-width: 80px;
             }
 
-            .logo-text p {
-                font-size: 0.7rem;
-            }
-
-            .arrow.left {
-                left: 10px;
-                /* видимая стрелка на мобильном */
-            }
-
-            .arrow.right {
-                right: 10px;
-            }
-
-            #restair-comparison>div {
-                padding: 10px;
-                margin: 20px auto;
-            }
-
-            #restair-comparison h3 {
-                font-size: 13px;
-                text-align: center;
-                color: #0a8f7a;
-            }
-
-            #restair-comparison p {
-                font-size: 11px;
-                text-align: center;
-                color: #ccc;
-            }
-
-            #restair-comparison table {
-                font-size: 9px;
-                color: #ccc;
+            .logo-text {
+                font-size: 0.6rem;
             }
 
             footer {
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
-                color: #ccc;
             }
         }
     </style>
     </head>
     <body>
-        <main>
-            <div class="carousel-container">
-                <div class="logo-container">
+        <!-- Верхний блок -->
+        <div class="top-section">
+            <div class="text-block">
+                <div class="logo-wrapper">
                     <img src="logo.png" alt="Logo" class="logo">
-                    <div class="logo-text">
-                        <p>REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</p>
-                    </div>
+                    <div class="logo-text">REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</div>
                 </div>
-                <div class="outer-carousel">
-                    <button class="arrow left">
-                        <img src="left_arrow.svg" alt="Left arrow">
-                    </button>
-                    <div class="carousel-section active">
-                        <div class="inner-carousel">
-                            <img src="mk3_panel.png" class="active" alt="1.1">
-                            <img src="e46_panel.png" alt="1.2">
-                        </div>
-                        <div class="carousel-text">
-                            <p>
-                            INDIVIDUAL DESIGN FOR EACH CAR INTERIOR<br>
-                            RGB BACKLIGHT FOR DISPLAY AND INDICATORS<br>
-                            TWO INTUITIVE SYSTEM CONTROL BUTTONS </p>
-                        </div>
-                    </div>
-                    <div class="carousel-section">
-                        <div class="inner-carousel">
-                            <img src="2circuits_box.png" class="active" alt="2.1">
-                            <img src="4circuits_box.png" alt="2.2">
-                        </div>
-                        <div class="carousel-text">
-                            <p>
-                            2 AND 4 CIRCUITS SUPPORT<br>
-                            MODULAR DESIGN </p>
-                        </div>
-                    </div>
-                    <button class="arrow right">
-                        <img src="right_arrow.svg" alt="Right arrow">
-                    </button>
+                <div class="middle-text">
+                    <h3>ANNOYED BY GAUGES AND REMOTES THAT DON’T MATCH YOUR CAR INTERIOR?</h3>
+                    <p>RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+
+                    AESTHETIC.</p>
                 </div>
             </div>
             <video src="video.mp4" autoplay muted loop playsinline></video>
-        </main>
-        <!-- Comparison Table -->
-        <section id="restair-comparison">
-            <div style="max-width:1200px; margin:40px auto; padding:20px;">
-                <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; margin-top:8px;">
-                    <div style="flex:1 1 320px; min-width:280px;">
-                        <h3 style="margin:14px 0 12px; font-size:15px; text-align:left; color:#0a8f7a;">
-                        ANNOYED BY GAUGES AND REMOTES THAT DON’T MATCH YOUR CAR INTERIOR? </h3>
-                        <p style="margin:0 0 12px; text-align:left; line-height:1.45; font-size:12px; color:#333;">
-                        RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+
-                        AESTHETIC. </p>
-                    </div>
-                    <div style="flex:1 1 420px; min-width:280px; overflow:auto;">
-                        <table style="width:100%; border-collapse:collapse; font-size:10px; color:#222;">
-                            <thead>
-                                <tr>
-                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:40%;">
-                                    FEATURE</th>
-                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:20%;">
-                                    GAUGES</th>
-                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:20%;">
-                                    GENERIC REMOTES</th>
-                                    <th style="text-align:left; padding:10px 12px; border-bottom:1px solid #e6e6e6; width:20%;">
-                                    RESTAIR</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">ACCURACY</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">AVERAGE</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">AVERAGE</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">HIGH</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">INTERIOR FIT</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">LOW</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">AVERAGE</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">HIGH</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">BACKLIGHT</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">NONE/LOW</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">SINGLE-COLOR</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">RGB</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">FUNCTIONALITY</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY ONLY</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY + BASIC CONTROL </td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">DISPLAY + EXTENDED
-                                    CONTROL + ALERTS</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">SYSTEM LANGUAGE</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">NONE</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">ENGLISH</td>
-                                    <td style="padding:10px 12px; border-bottom:1px solid #f3f3f3;">ENGLISH POLISH </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        </div>
+        <!-- Карусель -->
+        <div class="outer-carousel">
+            <button class="arrow left"></button>
+            <div class="carousel-section active">
+                <div class="inner-carousel">
+                    <img src="mk3_panel.png" class="active" alt="1.1">
+                    <img src="e46_panel.png" alt="1.2">
+                </div>
+                <div class="carousel-text">
+                    INDIVIDUAL DESIGN FOR EACH CAR INTERIOR<br>
+                    RGB BACKLIGHT FOR DISPLAY AND INDICATORS<br>
+                    TWO INTUITIVE SYSTEM CONTROL BUTTONS
                 </div>
             </div>
+            <div class="carousel-section">
+                <div class="inner-carousel">
+                    <img src="2circuits_box.png" class="active" alt="2.1">
+                    <img src="4circuits_box.png" alt="2.2">
+                </div>
+                <div class="carousel-text">
+                    2 AND 4 CIRCUITS SUPPORT<br>
+                    MODULAR DESIGN
+                </div>
+            </div>
+            <button class="arrow right"></button>
+        </div>
+        <!-- Таблица -->
+        <section id="restair-comparison">
+            <table>
+                <thead>
+                    <tr>
+                        <th>FEATURE</th>
+                        <th>GAUGES</th>
+                        <th>GENERIC REMOTES</th>
+                        <th>RESTAIR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ACCURACY</td>
+                        <td>AVERAGE</td>
+                        <td>AVERAGE</td>
+                        <td>HIGH</td>
+                    </tr>
+                    <tr>
+                        <td>INTERIOR FIT</td>
+                        <td>LOW</td>
+                        <td>AVERAGE</td>
+                        <td>HIGH</td>
+                    </tr>
+                    <tr>
+                        <td>BACKLIGHT</td>
+                        <td>NONE/LOW</td>
+                        <td>SINGLE-COLOR</td>
+                        <td>RGB</td>
+                    </tr>
+                    <tr>
+                        <td>FUNCTIONALITY</td>
+                        <td>DISPLAY ONLY</td>
+                        <td>DISPLAY + BASIC CONTROL</td>
+                        <td>DISPLAY + EXTENDED CONTROL + ALERTS</td>
+                    </tr>
+                    <tr>
+                        <td>SYSTEM LANGUAGE</td>
+                        <td>NONE</td>
+                        <td>ENGLISH</td>
+                        <td>ENGLISH POLISH</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
+        <!-- Footer -->
         <footer>
             <div>RESTAIR (C) <span id="year"></span>
-            </div>
-            <a href="privacy.html" class="btn">PRIVACY POLICY</a>
+            </div><a href="privacy.html" class="btn">PRIVACY POLICY</a>
         </footer>
-        <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+    </body>
+</html>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
         const sections = document.querySelectorAll('.carousel-section');
         const prev = document.querySelector('.arrow.left');
@@ -496,6 +455,4 @@
                 animateTo(newIdx);
             }, 4000);
         });
-    </script>
-    </body>
-</html>
+</script>
