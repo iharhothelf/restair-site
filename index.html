@@ -24,7 +24,6 @@
             background: #fff;
         }
 
-        /* --- Верхний блок: текст и видео --- */
         .top-section {
             display: flex;
             height: 100vh;
@@ -38,7 +37,6 @@
             padding: 40px;
         }
 
-        /* Логотип и текст под ним всегда сверху */
         .logo-wrapper {
             display: flex;
             flex-direction: column;
@@ -59,7 +57,6 @@
             margin-bottom: 20px;
         }
 
-        /* Заголовок и абзац — вертикально по центру */
         .middle-text {
             flex: 1;
             display: flex;
@@ -99,9 +96,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* центрируем по горизонтали */
             text-align: center;
-            /* текст тоже центрируем */
         }
 
         .action-button {
@@ -114,15 +109,12 @@
 
         .action-button img {
             width: 120px;
-            /* ширина кнопки */
             height: auto;
-            /* сохраняем пропорции */
             transition: transform 0.2s ease;
         }
 
         .action-button:hover img {
             transform: scale(1.05);
-            /* лёгкий эффект при наведении */
         }
 
         .action-text {
@@ -130,10 +122,9 @@
             color: #ccc;
             max-width: 300px;
             line-height: 1.4;
-            margin-top: 8px;
+            margin-top: 15px;
         }
 
-        /* --- Карусель --- */
         .outer-carousel {
             position: relative;
             width: 100%;
@@ -162,7 +153,6 @@
             width: 100%;
             height: 500px;
             position: relative;
-            /* для совместимости с JS анимацией */
         }
 
         .inner-carousel img {
@@ -171,7 +161,6 @@
             object-fit: contain;
             opacity: 0;
             position: absolute;
-            /* оставляем для совместимости с JS */
             transition: opacity 0.8s ease;
         }
 
@@ -200,16 +189,15 @@
         }
 
         .arrow.left {
-            left: 10px;
+            left: 50px;
             background: url('left_arrow.png') no-repeat center / contain;
         }
 
         .arrow.right {
-            right: 10px;
+            right: 50px;
             background: url('right_arrow.png') no-repeat center / contain;
         }
 
-        /* --- Таблица --- */
         #restair-comparison {
             max-width: 1200px;
             margin: 40px auto;
@@ -234,7 +222,6 @@
             border-bottom: 1px solid #e6e6e6;
         }
 
-        /* --- Footer --- */
         footer {
             display: flex;
             justify-content: space-between;
@@ -245,7 +232,6 @@
             color: #ccc;
         }
 
-        /* --- Мобильная версия --- */
         @media (max-width: 768px) {
             .top-section {
                 flex-direction: column;
@@ -269,12 +255,11 @@
 
             .inner-carousel {
                 width: 100%;
-                height: 300px;
-                /* для совместимости с JS анимацией */
+                height: 200px;
             }
 
             .outer-carousel {
-                height: 400px;
+                height: 300px;
             }
 
             .logo {
@@ -283,6 +268,14 @@
 
             .logo-text {
                 font-size: 0.6rem;
+            }
+
+            .arrow.left {
+                left: 30px;
+            }
+
+            .arrow.right {
+                right: 30px;
             }
 
             footer {
@@ -294,7 +287,6 @@
     </style>
     </head>
     <body>
-        <!-- Верхний блок -->
         <div class="top-section">
             <div class="text-block">
                 <div class="logo-wrapper">
@@ -306,14 +298,13 @@
                     <p>RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+
                     AESTHETIC.</p>
                 </div>
-                <!-- Блок с кнопкой и описанием -->
-                <div class="action-block"><a href="https://www.instagram.com/restair_official" target="_blank" class="action-button"> <img src="instagram_btn.png" alt="Button Icon"> </a>
+                <div class="action-block">
+                    <a href="https://www.instagram.com/restair_official" target="_blank" class="action-button"> <img src="instagram_btn.png" alt="Button Icon"> </a>
                     <p class="action-text">SUBSCRIBE AND STAY UP TO DATE WITH THE LATEST NEWS ABOUT OUR PRODUCT.</p>
                 </div>
             </div>
             <video src="video.mp4" autoplay muted loop playsinline></video>
         </div>
-        <!-- Карусель -->
         <div class="outer-carousel">
             <button class="arrow left"></button>
             <div class="carousel-section active">
@@ -341,7 +332,6 @@
             </div>
             <button class="arrow right"></button>
         </div>
-        <!-- Таблица -->
         <section id="restair-comparison">
             <table>
                 <thead>
@@ -386,10 +376,10 @@
                 </tbody>
             </table>
         </section>
-        <!-- Footer -->
         <footer>
             <div>RESTAIR (C) <span id="year"></span>
-            </div><a href="privacy.html" class="btn">PRIVACY POLICY</a>
+            </div>
+            <a href="privacy.html" class="btn">PRIVACY POLICY</a>
         </footer>
     </body>
 </html>
@@ -453,7 +443,6 @@
             showSection(newIndex, 'next');
         });
 
-        // Внутренние карусели
         document.querySelectorAll('.inner-carousel').forEach(inner => {
             const imgs = Array.from(inner.querySelectorAll('img'));
             let idx = imgs.findIndex(i => i.classList.contains('active'));
