@@ -9,7 +9,7 @@
         <style>
         @font-face {
             font-family: 'RestairFont';
-            src: url('RESTAIR.ttf') format('truetype');
+            src: url('resources/RESTAIR.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -70,10 +70,55 @@
             max-width: 500px;
             font-size: 15px;
             color: #0a8f7a;
-            margin: 0 0 10px 0;
+            margin: 40px 0 10px 0;
         }
 
         .middle-text p {
+            max-width: 500px;
+            font-size: 12px;
+            color: #333;
+            line-height: 1.45;
+            margin: 0 0 20px 0;
+        }
+
+        .image-text-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px auto;
+            min-height: 400px;
+        }
+
+        .image-half,
+        .text-half {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-half img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .text-half {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .text-half h3 {
+            max-width: 500px;
+            font-size: 15px;
+            color: #0a8f7a;
+            margin: 0 0 10px 0;
+        }
+
+        .text-half p {
             max-width: 500px;
             font-size: 12px;
             color: #333;
@@ -190,12 +235,12 @@
 
         .arrow.left {
             left: 50px;
-            background: url('left_arrow.png') no-repeat center / contain;
+            background: url('resources/left_arrow.png') no-repeat center / contain;
         }
 
         .arrow.right {
             right: 50px;
-            background: url('right_arrow.png') no-repeat center / contain;
+            background: url('resources/right_arrow.png') no-repeat center / contain;
         }
 
         #restair-comparison {
@@ -232,6 +277,8 @@
             color: #ccc;
         }
 
+
+
         @media (max-width: 768px) {
             .top-section {
                 flex-direction: column;
@@ -246,11 +293,12 @@
             video {
                 flex: 1;
                 width: 100%;
-                height: 100vw;
-                margin: 0px 0px 0px;
+                aspect-ratio: 1 / 1;
                 object-fit: cover;
+                margin: 0;
                 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
                 clip-path: inset(20px 20px 20px 20px round 15px);
+                display: block;
             }
 
             .inner-carousel {
@@ -283,6 +331,31 @@
                 text-align: center;
                 gap: 10px;
             }
+
+            .image-text-section {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .text-half,
+            .image-half {
+                flex: none;
+                width: 80%;
+                padding: 10px;
+            }
+
+            .text-half {
+                order: -1;
+            }
+
+            .image-half img {
+                width: 100%;
+                height: auto;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+
         }
     </style>
     </head>
@@ -290,7 +363,7 @@
         <div class="top-section">
             <div class="text-block">
                 <div class="logo-wrapper">
-                    <img src="logo.png" alt="Logo" class="logo">
+                    <img src="resources/logo.png" alt="Logo" class="logo">
                     <div class="logo-text">REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</div>
                 </div>
                 <div class="middle-text">
@@ -299,18 +372,20 @@
                     AESTHETIC.</p>
                 </div>
                 <div class="action-block">
-                    <a href="https://www.instagram.com/restair_official" target="_blank" class="action-button"> <img src="instagram_btn.png" alt="Button Icon"> </a>
-                    <p class="action-text">SUBSCRIBE AND STAY UP TO DATE WITH THE LATEST NEWS ABOUT OUR PRODUCT.</p>
+                    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;"><a href="https://www.instagram.com/restair_official" target="_blank" class="action-button"> <img src="resources/instagram_btn.png" alt="Instagram Button"> </a><a href="https://www.youtube.com/@restair" target="_blank" class="action-button"> <img src="resources/youtube_btn.png" alt="YouTube Button"> </a>
+                    </div>
+                    <p class="action-text">
+                    SUBSCRIBE AND STAY UP TO DATE WITH THE LATEST NEWS ABOUT OUR PRODUCT. </p>
                 </div>
             </div>
-            <video src="video.mp4" autoplay muted loop playsinline></video>
+            <video src="resources/video.mp4" autoplay muted loop playsinline></video>
         </div>
         <div class="outer-carousel">
             <button class="arrow left"></button>
             <div class="carousel-section active">
                 <div class="inner-carousel">
-                    <img src="mk3_panel.png" class="active" alt="1.1">
-                    <img src="e46_panel.png" alt="1.2">
+                    <img src="resources/mk3_panel.png" class="active" alt="1.1">
+                    <img src="resources/e46_panel.png" alt="1.2">
                 </div>
                 <div class="carousel-text">
                     INDIVIDUAL DESIGN FOR EACH CAR INTERIOR<br>
@@ -320,8 +395,8 @@
             </div>
             <div class="carousel-section">
                 <div class="inner-carousel">
-                    <img src="2circuits_box.png" class="active" alt="2.1">
-                    <img src="4circuits_box.png" alt="2.2">
+                    <img src="resources/2circuits_box.png" class="active" alt="2.1">
+                    <img src="resources/4circuits_box.png" alt="2.2">
                 </div>
                 <div class="carousel-text">
                     2 AND 4 CIRCUITS VALVES SUPPORT<br>
@@ -331,6 +406,15 @@
                 </div>
             </div>
             <button class="arrow right"></button>
+        </div>
+        <div class="image-text-section">
+            <div class="image-half">
+                <img src="resources/main_screen.png" alt="Example image">
+            </div>
+            <div class="text-half">
+                <h3>STAND OUT FROM THE REST!</h3>
+                <p>COMBINATION OF A UNIQUE INTERFACE, WIDE CHOICE OF SETTINGS AND CALIBRATIONS.</p>
+            </div>
         </div>
         <section id="restair-comparison">
             <table>
@@ -371,15 +455,14 @@
                         <td>SYSTEM LANGUAGE</td>
                         <td>NONE</td>
                         <td>ENGLISH</td>
-                        <td>ENGLISH POLISH</td>
+                        <td>ENGLISH, POLISH</td>
                     </tr>
                 </tbody>
             </table>
         </section>
         <footer>
             <div>RESTAIR (C) <span id="year"></span>
-            </div>
-            <a href="privacy.html" class="btn">PRIVACY POLICY</a>
+            </div><a href="privacy.html" class="btn">PRIVACY POLICY</a>
         </footer>
     </body>
 </html>
