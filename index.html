@@ -231,6 +231,7 @@
             background: rgba(255, 255, 255, 0.2);
             border: none;
             z-index: 5;
+            transition: transform 0.2s ease;
         }
 
         .arrow.left {
@@ -241,6 +242,10 @@
         .arrow.right {
             right: 50px;
             background: url('resources/right_arrow.png') no-repeat center / contain;
+        }
+
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.2);
         }
 
         #restair-comparison {
@@ -277,7 +282,35 @@
             color: #ccc;
         }
 
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
 
+        .lang-btn {
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .lang-icon {
+            width: 30px;
+            height: auto;
+            display: block;
+        }
 
         @media (max-width: 768px) {
             .top-section {
@@ -354,28 +387,32 @@
                 border-radius: 0;
                 box-shadow: none;
             }
-
-
         }
     </style>
     </head>
     <body>
         <div class="top-section">
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="en">
+                    <img src="resources/en_lang_btn.png" alt="EN" class="lang-icon">
+                </button>
+                <button class="lang-btn" data-lang="pl">
+                    <img src="resources/pl_lang_btn.png" alt="PL" class="lang-icon">
+                </button>
+            </div>
             <div class="text-block">
                 <div class="logo-wrapper">
                     <img src="resources/logo.png" alt="Logo" class="logo">
-                    <div class="logo-text">REAL-TIME ELECTRONIC SYSTEM TUNE FOR YOUR AIR SUSPENSION</div>
+                    <div class="logo-text" data-i18n="logo_subtitle"></div>
                 </div>
                 <div class="middle-text">
-                    <h3>ANNOYED BY GAUGES AND REMOTES THAT DON’T MATCH YOUR CAR INTERIOR?</h3>
-                    <p>RESTAIR PRODUCT IS AN ALTERNATIVE - A SYSTEM THAT COMBINES AIR SUSPENSION CONTROL WITH AN OEM+
-                    AESTHETIC.</p>
+                    <h3 data-i18n="top_section_title"></h3>
+                    <p data-i18n="top_section_subtitle"></p>
                 </div>
                 <div class="action-block">
                     <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;"><a href="https://www.instagram.com/restair_official" target="_blank" class="action-button"> <img src="resources/instagram_btn.png" alt="Instagram Button"> </a><a href="https://www.youtube.com/@restair" target="_blank" class="action-button"> <img src="resources/youtube_btn.png" alt="YouTube Button"> </a>
                     </div>
-                    <p class="action-text">
-                    SUBSCRIBE AND STAY UP TO DATE WITH THE LATEST NEWS ABOUT OUR PRODUCT. </p>
+                    <p class="action-text" data-i18n="social_buttons_subtitle"></p>
                 </div>
             </div>
             <video src="resources/video.mp4" autoplay muted loop playsinline></video>
@@ -387,23 +424,14 @@
                     <img src="resources/mk3_panel.png" class="active" alt="1.1">
                     <img src="resources/e46_panel.png" alt="1.2">
                 </div>
-                <div class="carousel-text">
-                    INDIVIDUAL DESIGN FOR EACH CAR INTERIOR<br>
-                    RGB BACKLIGHT FOR DISPLAY AND INDICATORS<br>
-                    TWO INTUITIVE SYSTEM CONTROL BUTTONS
-                </div>
+                <div class="carousel-text" data-i18n="panel_carousel_title"></div>
             </div>
             <div class="carousel-section">
                 <div class="inner-carousel">
                     <img src="resources/2circuits_box.png" class="active" alt="2.1">
                     <img src="resources/4circuits_box.png" alt="2.2">
                 </div>
-                <div class="carousel-text">
-                    2 AND 4 CIRCUITS VALVES SUPPORT<br>
-                    COMPRESSOR CONTROL SUPPORT<br>
-                    ANY 5V SENSORS SUPPORT<br>
-                    MODULAR DESIGN
-                </div>
+                <div class="carousel-text" data-i18n="control_carousel_title"></div>
             </div>
             <button class="arrow right"></button>
         </div>
@@ -412,50 +440,50 @@
                 <img src="resources/main_screen.png" alt="Example image">
             </div>
             <div class="text-half">
-                <h3>STAND OUT FROM THE REST!</h3>
-                <p>COMBINATION OF A UNIQUE INTERFACE, WIDE CHOICE OF SETTINGS AND CALIBRATIONS.</p>
+                <h3 data-i18n="middle_section_title"></h3>
+                <p data-i18n="middle_section_subtitle"></p>
             </div>
         </div>
         <section id="restair-comparison">
             <table>
                 <thead>
                     <tr>
-                        <th>FEATURE</th>
-                        <th>GAUGES</th>
-                        <th>GENERIC REMOTES</th>
-                        <th>RESTAIR</th>
+                        <th data-i18n="table_feature_title"></th>
+                        <th data-i18n="table_gauges_title"></th>
+                        <th data-i18n="table_remotes_title"></th>
+                        <th data-i18n="table_restair_title"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>ACCURACY</td>
-                        <td>AVERAGE</td>
-                        <td>AVERAGE</td>
-                        <td>HIGH</td>
+                        <th data-i18n="table_accuracy"></th>
+                        <th data-i18n="table_average"></th>
+                        <th data-i18n="table_average"></th>
+                        <th data-i18n="table_high"></th>
                     </tr>
                     <tr>
-                        <td>INTERIOR FIT</td>
-                        <td>LOW</td>
-                        <td>AVERAGE</td>
-                        <td>HIGH</td>
+                        <th data-i18n="table_interior_fit"></th>
+                        <th data-i18n="table_low"></th>
+                        <th data-i18n="table_average"></th>
+                        <th data-i18n="table_high"></th>
                     </tr>
                     <tr>
-                        <td>BACKLIGHT</td>
-                        <td>NONE/LOW</td>
-                        <td>SINGLE-COLOR</td>
-                        <td>RGB</td>
+                        <th data-i18n="table_backlight"></th>
+                        <th data-i18n="table_none_or_low"></th>
+                        <th data-i18n="table_single_color"></th>
+                        <th data-i18n="table_rgb"></th>
                     </tr>
                     <tr>
-                        <td>FUNCTIONALITY</td>
-                        <td>DISPLAY ONLY</td>
-                        <td>DISPLAY + BASIC CONTROL</td>
-                        <td>DISPLAY + EXTENDED CONTROL + ALERTS</td>
+                        <th data-i18n="table_functionality"></th>
+                        <th data-i18n="table_display_only"></th>
+                        <th data-i18n="table_display_and_basic"></th>
+                        <th data-i18n="table_display_and_extended_and_alerts"></th>
                     </tr>
                     <tr>
-                        <td>SYSTEM LANGUAGE</td>
-                        <td>NONE</td>
-                        <td>ENGLISH</td>
-                        <td>ENGLISH, POLISH</td>
+                        <th data-i18n="table_system_language"></th>
+                        <th data-i18n="table_none"></th>
+                        <th data-i18n="table_english"></th>
+                        <th data-i18n="table_english_and_polish"></th>
                     </tr>
                 </tbody>
             </table>
@@ -467,115 +495,141 @@
     </body>
 </html>
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
 
-        const sections = document.querySelectorAll('.carousel-section');
-        const prev = document.querySelector('.arrow.left');
-        const next = document.querySelector('.arrow.right');
-        let currentSection = 0;
-        let isAnimating = false;
+    const sections = document.querySelectorAll('.carousel-section');
+    const prev = document.querySelector('.arrow.left');
+    const next = document.querySelector('.arrow.right');
+    let currentSection = 0;
+    let isAnimating = false;
 
-        function showSection(newIndex, direction) {
-            if (isAnimating || newIndex === currentSection) return;
-            isAnimating = true;
+    function showSection(newIndex, direction) {
+        if (isAnimating || newIndex === currentSection) return;
+        isAnimating = true;
 
-            const current = sections[currentSection];
-            const nextSection = sections[newIndex];
+        const current = sections[currentSection];
+        const nextSection = sections[newIndex];
 
-            let enterX = direction === 'next' ? -100 : 100;
-            let enterY = direction === 'next' ? -100 : 100;
-            let exitX = direction === 'next' ? 100 : -100;
-            let exitY = direction === 'next' ? 100 : -100;
+        let enterX = direction === 'next' ? -100 : 100;
+        let enterY = direction === 'next' ? -100 : 100;
+        let exitX = direction === 'next' ? 100 : -100;
+        let exitY = direction === 'next' ? 100 : -100;
 
-            nextSection.style.transition = 'none';
-            current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+        nextSection.style.transition = 'none';
+        current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
 
-            nextSection.style.transform = `translate(${enterX}%, ${enterY}%)`;
+        nextSection.style.transform = `translate(${enterX}%, ${enterY}%)`;
+        nextSection.style.opacity = 1;
+        nextSection.style.display = 'block';
+
+        requestAnimationFrame(() => {
+            current.style.transform = `translate(${exitX}%, ${exitY}%)`;
+            current.style.opacity = 0;
+
+            nextSection.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+            nextSection.style.transform = 'translate(0,0)';
             nextSection.style.opacity = 1;
-            nextSection.style.display = 'block';
+        });
 
-            requestAnimationFrame(() => {
-                current.style.transform = `translate(${exitX}%, ${exitY}%)`;
-                current.style.opacity = 0;
+        setTimeout(() => {
+            current.classList.remove('active');
+            nextSection.classList.add('active');
 
-                nextSection.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-                nextSection.style.transform = 'translate(0,0)';
-                nextSection.style.opacity = 1;
-            });
+            current.style.opacity = '';
+            current.style.transform = '';
+            current.style.transition = '';
+            nextSection.style.transition = '';
+            isAnimating = false;
+            currentSection = newIndex;
+        }, 820);
+    }
 
-            setTimeout(() => {
+    prev.addEventListener('click', () => {
+        const newIndex = (currentSection - 1 + sections.length) % sections.length;
+        showSection(newIndex, 'prev');
+    });
+
+    next.addEventListener('click', () => {
+        const newIndex = (currentSection + 1) % sections.length;
+        showSection(newIndex, 'next');
+    });
+
+    document.querySelectorAll('.inner-carousel').forEach(inner => {
+        const imgs = Array.from(inner.querySelectorAll('img'));
+        let idx = imgs.findIndex(i => i.classList.contains('active'));
+        if (idx < 0) idx = 0, imgs[0].style.opacity = '1';
+        let isAnimatingInner = false;
+
+        function animateTo(newIdx) {
+            if (isAnimatingInner || newIdx === idx) return;
+            isAnimatingInner = true;
+
+            const current = imgs[idx];
+            const next = imgs[newIdx];
+
+            next.style.transition = 'none';
+            next.style.transform = 'translate(-100%, 100%)';
+            next.style.opacity = '0';
+            next.style.zIndex = '2';
+            next.style.display = 'block';
+
+            next.getBoundingClientRect();
+
+            current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+            current.style.zIndex = '1';
+            current.style.transform = 'translate(100%, -100%)';
+            current.style.opacity = '0';
+
+            next.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+            next.style.transform = 'translate(0,0)';
+            next.style.opacity = '1';
+
+            current.addEventListener('transitionend', function handler(e) {
+                if (e.propertyName !== 'transform') return;
+                current.removeEventListener('transitionend', handler);
+
                 current.classList.remove('active');
-                nextSection.classList.add('active');
+                next.classList.add('active');
 
-                current.style.opacity = '';
-                current.style.transform = '';
                 current.style.transition = '';
-                nextSection.style.transition = '';
-                isAnimating = false;
-                currentSection = newIndex;
-            }, 820);
+                current.style.transform = '';
+                current.style.opacity = '';
+                current.style.zIndex = '';
+                next.style.zIndex = '';
+                idx = newIdx;
+                isAnimatingInner = false;
+            });
         }
 
-        prev.addEventListener('click', () => {
-            const newIndex = (currentSection - 1 + sections.length) % sections.length;
-            showSection(newIndex, 'prev');
+        setInterval(() => {
+            const newIdx = (idx + 1) % imgs.length;
+            animateTo(newIdx);
+        }, 4000);
+    });
+
+    async function setLanguage(lang) {
+        try {
+            const res = await fetch('lang.json');
+            const translations = await res.json();
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            localStorage.setItem('lang', lang);
+        } catch (err) {
+            console.error('Error loading language JSON:', err);
+        }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.dataset.lang);
         });
+    });
 
-        next.addEventListener('click', () => {
-            const newIndex = (currentSection + 1) % sections.length;
-            showSection(newIndex, 'next');
-        });
-
-        document.querySelectorAll('.inner-carousel').forEach(inner => {
-            const imgs = Array.from(inner.querySelectorAll('img'));
-            let idx = imgs.findIndex(i => i.classList.contains('active'));
-            if (idx < 0) idx = 0, imgs[0].style.opacity = '1';
-            let isAnimatingInner = false;
-
-            function animateTo(newIdx) {
-                if (isAnimatingInner || newIdx === idx) return;
-                isAnimatingInner = true;
-
-                const current = imgs[idx];
-                const next = imgs[newIdx];
-
-                next.style.transition = 'none';
-                next.style.transform = 'translate(-100%, 100%)';
-                next.style.opacity = '0';
-                next.style.zIndex = '2';
-                next.style.display = 'block';
-
-                next.getBoundingClientRect();
-
-                current.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-                current.style.zIndex = '1';
-                current.style.transform = 'translate(100%, -100%)';
-                current.style.opacity = '0';
-
-                next.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-                next.style.transform = 'translate(0,0)';
-                next.style.opacity = '1';
-
-                current.addEventListener('transitionend', function handler(e) {
-                    if (e.propertyName !== 'transform') return;
-                    current.removeEventListener('transitionend', handler);
-
-                    current.classList.remove('active');
-                    next.classList.add('active');
-
-                    current.style.transition = '';
-                    current.style.transform = '';
-                    current.style.opacity = '';
-                    current.style.zIndex = '';
-                    next.style.zIndex = '';
-                    idx = newIdx;
-                    isAnimatingInner = false;
-                });
-            }
-
-            setInterval(() => {
-                const newIdx = (idx + 1) % imgs.length;
-                animateTo(newIdx);
-            }, 4000);
-        });
+    setLanguage(localStorage.getItem('lang') || 'en');
+});
 </script>
