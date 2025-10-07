@@ -85,7 +85,7 @@
 
             .gallery-grid {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr); /* две фото в ряд */
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
                 padding: 20px;
                 max-width: 1200px;
@@ -129,7 +129,7 @@
 
             @media (max-width: 1024px) {
                 .gallery-grid {
-                    grid-template-columns: 1fr; /* на планшете и телефоне 1 фото в ряд */
+                    grid-template-columns: 1fr;
                 }
             }
         </style>
@@ -167,7 +167,7 @@
 
         <footer>
             <div>RESTAIR (C) <span id="year"></span></div>
-            <a href="privacy.html" class="btn">Privacy Policy</a>
+            <a href="privacy.html" class="btn" data-i18n="privacy_policy_btn"></a>
         </footer>
 
         <script src="js/lang.js"></script>
