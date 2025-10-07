@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gallery - RESTAIR</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+        <style>
+            @font-face {
+                font-family: "RestairFont";
+                src: url("resources/RESTAIR.ttf") format("truetype");
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+                color: #222;
+                font-family: "RestairFont";
+                height: auto;
+            }
+            
+            .language-switcher {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                display: flex;
+                gap: 10px;
+                z-index: 1000;
+            }
+
+            .lang-btn {
+                border: none;
+                background: none;
+                padding: 0;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+
+            .lang-btn:hover {
+                transform: scale(1.1);
+            }
+
+            .lang-icon {
+                width: 30px;
+                height: auto;
+            }
+
+            header {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            header img {
+                max-width: 100px;
+                height: auto;
+            }
+
+            .logo-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-btn {
+                text-decoration: none;
+                color: #ccc;
+                border-radius: 1px;
+                padding: 24px 14px;
+                font-size: 0.7rem;
+                transition: all 0.2s ease;
+            }
+
+            .nav-btn:hover {
+                transform: scale(1.05);
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* две фото в ряд */
+                gap: 10px;
+                padding: 20px;
+                max-width: 1200px;
+                margin: 0px auto;
+            }
+
+            .gallery-grid a {
+                display: block;
+            }
+
+            .gallery-grid img {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                border-radius: 5px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.2s ease;
+                display: block;
+            }
+
+            .gallery-grid img:hover {
+                transform: scale(1.01);
+            }
+
+            footer {
+                background: #1a1a1a;
+                color: #ccc;
+                font-size: 0.6rem;
+                padding: 15px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 30px;
+            }
+
+            a.btn {
+                color: #ccc;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            @media (max-width: 1024px) {
+                .gallery-grid {
+                    grid-template-columns: 1fr; /* на планшете и телефоне 1 фото в ряд */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="language-switcher">
+            <button class="lang-btn" data-lang="en"><img src="resources/en_lang_btn.png" class="lang-icon" /></button>
+            <button class="lang-btn" data-lang="pl"><img src="resources/pl_lang_btn.png" class="lang-icon" /></button>
+        </div>
+
+        <header>
+            <a href="index.html">
+                <img src="resources/logo.png" alt="Logo" class="logo" />
+            </a>
+            <div class="nav-buttons">
+                <a data-i18n="header_gallery" href="gallery.html" class="nav-btn"></a>
+                <a data-i18n="header_about" href="about.html" class="nav-btn"></a>
+            </div>
+        </header>
+
+        <main class="gallery-grid">
+            <a href="resources/IMG_1217.jpg" target="_blank"
+                ><img src="resources/IMG_1217.jpg" alt="Gallery image 1"
+            /></a>
+            <a href="resources/IMG_1215.jpg" target="_blank"
+                ><img src="resources/IMG_1215.jpg" alt="Gallery image 2"
+            /></a>
+            <a href="resources/IMG_4016.jpg" target="_blank"
+                ><img src="resources/IMG_4016.jpg" alt="Gallery image 3"
+            /></a>
+            <a href="resources/IMG_4023.jpg" target="_blank"
+                ><img src="resources/IMG_4023.jpg" alt="Gallery image 4"
+            /></a>
+        </main>
+
+        <footer>
+            <div>RESTAIR (C) <span id="year"></span></div>
+            <a href="privacy.html" class="btn">Privacy Policy</a>
+        </footer>
+
+        <script src="js/lang.js"></script>
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>

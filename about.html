@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About Product - RESTAIR</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+        <style>
+            @font-face {
+                font-family: "RestairFont";
+                src: url("resources/RESTAIR.ttf") format("truetype");
+            }
+
+            body {
+                font-family: "RestairFont";
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+                color: #222;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .language-switcher {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                display: flex;
+                gap: 10px;
+                z-index: 1000;
+            }
+
+            .lang-btn {
+                border: none;
+                background: none;
+                padding: 0;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+
+            .lang-btn:hover {
+                transform: scale(1.1);
+            }
+
+            .lang-icon {
+                width: 30px;
+                height: auto;
+            }
+
+            header {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .nav-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-btn {
+                text-decoration: none;
+                color: #ccc;
+                border-radius: 1px;
+                padding: 24px 14px;
+                font-size: 0.7rem;
+                transition: all 0.2s ease;
+            }
+
+            .nav-btn:hover {
+                transform: scale(1.05);
+            }
+
+            header img {
+                max-width: 100px;
+                height: auto;
+            }
+
+            main {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px 40px;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #333;
+            }
+
+            main h2 {
+                color: #0a8f7a;
+                font-size: 16px;
+            }
+
+            footer {
+                margin-top: auto;
+                background: #1a1a1a;
+                color: #ccc;
+                font-size: 0.6rem;
+                padding: 15px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 30px;
+            }
+
+            a.btn {
+                color: #ccc;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="language-switcher">
+            <button class="lang-btn" data-lang="en"><img src="resources/en_lang_btn.png" class="lang-icon" /></button>
+            <button class="lang-btn" data-lang="pl"><img src="resources/pl_lang_btn.png" class="lang-icon" /></button>
+        </div>
+
+        <header>
+            <a href="index.html">
+                <img src="resources/logo.png" alt="Logo" class="logo" />
+            </a>
+            <div class="nav-buttons">
+                <a data-i18n="header_gallery" href="gallery.html" class="nav-btn"></a>
+                <a data-i18n="header_about" href="about.html" class="nav-btn"></a>
+            </div>
+        </header>
+
+        <main>
+            <h2 data-i18n="about_intro_title">Innovation in air suspension control</h2>
+            <p data-i18n="about_intro_text">
+                RESTAIR is a next-generation air suspension control system designed to combine OEM+ style aesthetics with
+                high-end functionality. Every controller is individually tailored to match the design of your car’s
+                interior.
+            </p>
+
+            <h2 data-i18n="about_features_title">Key Features</h2>
+            <ul>
+                <li data-i18n="about_feature_1">Real-time monitoring and height adjustment.</li>
+                <li data-i18n="about_feature_4">Multi-language firmware support.</li>
+            </ul>
+        </main>
+
+        <footer>
+            <div>RESTAIR (C) <span id="year"></span></div>
+            <a href="privacy.html" class="btn">Privacy Policy</a>
+        </footer>
+
+        <script src="js/lang.js"></script>
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
