@@ -259,28 +259,30 @@
                 transform: translateY(-50%) scale(1.2);
             }
 
-            #restair-comparison {
-                max-width: 1200px;
-                margin: 40px auto;
-                padding: 20px;
+            .table-wrapper {
+                width: 100vw;
+                overflow-x: auto;
+                padding: 40px 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: center;
             }
 
             #restair-comparison table {
-                width: 100%;
                 border-collapse: collapse;
-                font-size: 10px;
+                font-size: 12px;
                 color: #222;
             }
 
             #restair-comparison th,
             #restair-comparison td {
-                padding: 10px 12px;
+                padding: 10px 6px;
                 border-bottom: 1px solid #f3f3f3;
                 text-align: left;
             }
 
             #restair-comparison th {
-                border-bottom: 1px solid #e6e6e6;
+                background: #f8f8f8;
             }
 
             footer {
@@ -344,6 +346,10 @@
             }
 
             @media (max-width: 768px) {
+                #restair-comparison table {
+                    font-size: 10px;
+                }
+
                 .top-section {
                     flex-direction: column;
                     height: auto;
@@ -486,48 +492,50 @@
             </div>
         </div>
         <section id="restair-comparison">
-            <table>
-                <thead>
-                    <tr>
-                        <th data-i18n="table_feature_title"></th>
-                        <th data-i18n="table_gauges_title"></th>
-                        <th data-i18n="table_remotes_title"></th>
-                        <th data-i18n="table_restair_title"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th data-i18n="table_accuracy"></th>
-                        <th data-i18n="table_average"></th>
-                        <th data-i18n="table_average"></th>
-                        <th data-i18n="table_high"></th>
-                    </tr>
-                    <tr>
-                        <th data-i18n="table_interior_fit"></th>
-                        <th data-i18n="table_low"></th>
-                        <th data-i18n="table_average"></th>
-                        <th data-i18n="table_high"></th>
-                    </tr>
-                    <tr>
-                        <th data-i18n="table_backlight"></th>
-                        <th data-i18n="table_none_or_low"></th>
-                        <th data-i18n="table_single_color"></th>
-                        <th data-i18n="table_rgb"></th>
-                    </tr>
-                    <tr>
-                        <th data-i18n="table_functionality"></th>
-                        <th data-i18n="table_display_only"></th>
-                        <th data-i18n="table_display_and_basic"></th>
-                        <th data-i18n="table_display_and_extended_and_alerts"></th>
-                    </tr>
-                    <tr>
-                        <th data-i18n="table_system_language"></th>
-                        <th data-i18n="table_none"></th>
-                        <th data-i18n="table_english"></th>
-                        <th data-i18n="table_english_and_polish"></th>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="table_feature_title"></th>
+                            <th data-i18n="table_gauges_title"></th>
+                            <th data-i18n="table_remotes_title"></th>
+                            <th data-i18n="table_restair_title"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th data-i18n="table_accuracy"></th>
+                            <td data-i18n="table_average"></td>
+                            <td data-i18n="table_average"></td>
+                            <td data-i18n="table_high"></td>
+                        </tr>
+                        <tr>
+                            <th data-i18n="table_interior_fit"></th>
+                            <td data-i18n="table_low"></td>
+                            <td data-i18n="table_average"></td>
+                            <td data-i18n="table_high"></td>
+                        </tr>
+                        <tr>
+                            <th data-i18n="table_backlight"></th>
+                            <td data-i18n="table_none_or_low"></td>
+                            <td data-i18n="table_single_color"></td>
+                            <td data-i18n="table_rgb"></td>
+                        </tr>
+                        <tr>
+                            <th data-i18n="table_functionality"></th>
+                            <td data-i18n="table_display_only"></td>
+                            <td data-i18n="table_display_and_basic"></td>
+                            <td data-i18n="table_display_and_extended_and_alerts"></td>
+                        </tr>
+                        <tr>
+                            <th data-i18n="table_system_language"></th>
+                            <td data-i18n="table_none"></td>
+                            <td data-i18n="table_english"></td>
+                            <td data-i18n="table_english_and_polish"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
         <footer>
             <div>RESTAIR (C) <span id="year"></span></div>
@@ -535,7 +543,6 @@
         </footer>
     </body>
 </html>
-<script src="js/date.js"></script>
 <script src="js/lang.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
