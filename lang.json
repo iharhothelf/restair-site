@@ -41,11 +41,16 @@
     "privacy_policy_contact_subtitle": "If you have any questions regarding privacy, please contact us at: restaircontrollers@gmail.com.",
     "privacy_policy_user_rights_title": "4. User rights",
     "privacy_policy_user_rights_subtitle": "If we ever start processing personal data (e.g. through a future contact form), we will ensure the right of access, rectification, and erasure in accordance with GDPR.",
-    "about_intro_title": "Innovation in air suspension control",
-    "about_intro_text": "RESTAIR is a next-generation air suspension control system designed to combine OEM+ style aesthetics with high-end functionality. Every controller is individually tailored to match the design of your car’s interior.",
-    "about_features_title": "Key Features",
-    "about_feature_1": "Real-time monitoring and height adjustment.",
-    "about_feature_4": "Multi-language firmware support."
+    "about_design_title": "Individual design, perfect integration",
+    "about_design_text": "Each RESTAIR panel is custom-designed for the interior of your car. Unlike standard gauges or generic controllers, our panels blend seamlessly with the cabin, maintaining harmony and style.",
+    "about_rgb_title": "RGB lighting",
+    "about_rgb_text": "The adjustable RGB backlight ensures your panel looks exceptional both during the day and at night, adding a personal touch to your dashboard.",
+    "about_monitoring_title": "Beyond simple monitoring",
+    "about_monitoring_text": "RESTAIR doesn’t just display air pressure. It allows full control of vehicle height, compressor management, sound alerts, calibration, styling, and much more. Support for both 2- and 4-channel valve systems.",
+    "about_modular_title": "Modular",
+    "about_modular_text": "The system is designed to evolve with your needs. Move effortlessly from the Light version to the full-featured Basic edition without replacing hardware.",
+    "about_creator_title": "About the project",
+    "about_creator_text": "RESTAIR was born from a passion for cars and technology. 10 years of programming experience, combined with hobbies in design and 3D modeling. What started as a personal project has now grown into a system available for anyone who values individuality, function, and style."
   },
   "pl": {
     "header_gallery": "Galeria",
@@ -89,10 +94,15 @@
     "privacy_policy_contact_subtitle": "Jeśli masz jakiekolwiek pytania dotyczące prywatności, prosimy o kontakt pod adresem: restaircontrollers@gmail.com.",
     "privacy_policy_user_rights_title": "4. Prawa użytkownika",
     "privacy_policy_user_rights_subtitle": "Jeśli kiedykolwiek zaczniemy przetwarzać dane osobowe (np. poprzez przyszły formularz kontaktowy), zapewnimy prawo dostępu, poprawiania i usuwania danych zgodnie z RODO.",
-    "about_intro_title": "Innowacje w sterowaniu zawieszeniem pneumatycznym",
-    "about_intro_text": "RESTAIR to nowej generacji system sterowania zawieszeniem pneumatycznym, zaprojektowany w celu połączenia estetyki w stylu OEM+ z wysoką funkcjonalnością. Każdy kontroler jest indywidualnie dopasowany do projektu wnętrza Twojego samochodu.",
-    "about_features_title": "Kluczowe funkcje",
-    "about_feature_1": "Monitorowanie w czasie rzeczywistym i regulacja wysokości.",
-    "about_feature_4": "Obsługa wielojęzycznego oprogramowania sprzętowego."
+    "about_design_title": "Indywidualny projekt, doskonała integracja",
+    "about_design_text": "Każdy panel RESTAIR jest projektowany indywidualnie, aby idealnie pasował do wnętrza Twojego samochodu. W przeciwieństwie do standardowych manometrów lub uniwersalnych sterowników, nasze panele harmonijnie komponują się z kabiną, zachowując spójność i styl.",
+    "about_rgb_title": "Oświetlenie RGB",
+    "about_rgb_text": "Regulowane podświetlenie RGB sprawia, że panel wygląda wyjątkowo zarówno w dzień, jak i w nocy, dodając indywidualnego charakteru Twojej desce rozdzielczej.",
+    "about_monitoring_title": "Więcej niż zwykły monitoring",
+    "about_monitoring_text": "RESTAIR to nie tylko wyświetlanie ciśnienia. System umożliwia pełną kontrolę wysokości pojazdu, zarządzanie kompresorem, alerty dźwiękowe, kalibrację, personalizację stylu i wiele więcej. Obsługuje zarówno zawory 2-, jak i 4-kanałowe.",
+    "about_modular_title": "Modułowość",
+    "about_modular_text": "System został zaprojektowany tak, aby rozwijał się wraz z Twoimi potrzebami. Przejdź z wersji Light na w pełni funkcjonalną wersję Basic bez konieczności wymiany sprzętu.",
+    "about_creator_title": "O projekcie",
+    "about_creator_text": "RESTAIR powstał z pasji do motoryzacji i technologii. Dziesięcioletnie doświadczenie w programowaniu w połączeniu z zainteresowaniami w projektowaniu i modelowaniu 3D. Projekt, który zaczął się jako osobisty, stał się teraz systemem dostępnym dla każdego, kto ceni indywidualność, funkcjonalność i styl."
   }
 }
